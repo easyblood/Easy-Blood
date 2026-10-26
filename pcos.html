@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7fc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: #00796b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .content {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+        }
+        select {
+            padding: 8px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 8px 0;
+        }
+        footer {
+            background: red;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header-title">PCOS Information</header>
+<div onclick="location.assign('/Healthy blood/vlog.html')" style="display:block;width:200px;margin:2rem auto;padding:1rem;background:linear-gradient(45deg,#007bff,#00bcd4);color:white;text-align:center;font-size:1.2rem;border-radius:30px;text-decoration:none;box-shadow:0 5px 10px rgba(0,0,0,.1);transition:all .3s ease;">Go to back page</div>
+
+    <div class="content">
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="ur">Urdu</option>
+        </select>
+
+        <h2 id="section-title">What is PCOS?</h2>
+        <p id="section-text">Polycystic Ovary Syndrome (PCOS) is a hormonal disorder that affects women, leading to irregular menstrual cycles, excess hair growth, and ovarian cysts.</p>
+
+        <h3 id="symptoms-title">Symptoms of PCOS</h3>
+        <ul id="symptoms-list">
+            <li>Irregular or missed periods</li>
+            <li>Excessive hair growth (hirsutism)</li>
+            <li>Acne and oily skin</li>
+            <li>Thinning hair or hair loss</li>
+            <li>Difficulty getting pregnant</li>
+        </ul>
+
+        <h3 id="causes-title">Causes of PCOS</h3>
+        <ul id="causes-list">
+            <li>Hormonal imbalance</li>
+            <li>Genetics (family history)</li>
+            <li>Insulin resistance</li>
+            <li>Increased levels of androgens (male hormones)</li>
+        </ul>
+
+        <h3 id="diagnosis-title">Diagnosis of PCOS</h3>
+        <p id="diagnosis-text">Diagnosis typically involves blood tests, ultrasound, and a review of symptoms to identify irregularities in hormone levels, ovaries, and menstrual cycle.</p>
+
+        <h3 id="treatment-title">Management and Treatment</h3>
+        <ul id="treatment-list">
+            <li>Medications to regulate periods (birth control pills or progestins)</li>
+            <li>Insulin-sensitizing drugs (like Metformin)</li>
+            <li>Anti-androgen medications to reduce excessive hair growth</li>
+            <li>Lifestyle changes (diet and exercise)</li>
+        </ul>
+
+        <h3 id="home-remedies-title">Home Remedies for PCOS</h3>
+        <ul id="home-remedies-list">
+            <li>Maintain a healthy diet, rich in fiber and low in refined sugars</li>
+            <li>Exercise regularly to improve insulin sensitivity</li>
+            <li>Try herbal remedies like cinnamon and spearmint tea</li>
+            <li>Manage stress through yoga and meditation</li>
+        </ul>
+    </div>
+
+    <footer id="footer-text">This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment.</footer>
+
+    <script>
+        const languageData = {
+            en: {
+                headerTitle: "PCOS Information",
+                sectionTitle: "What is PCOS?",
+                sectionText: "Polycystic Ovary Syndrome (PCOS) is a hormonal disorder that affects women, leading to irregular menstrual cycles, excess hair growth, and ovarian cysts.",
+                symptomsTitle: "Symptoms of PCOS",
+                symptomsList: [
+                    "Irregular or missed periods",
+                    "Excessive hair growth (hirsutism)",
+                    "Acne and oily skin",
+                    "Thinning hair or hair loss",
+                    "Difficulty getting pregnant"
+                ],
+                causesTitle: "Causes of PCOS",
+                causesList: [
+                    "Hormonal imbalance",
+                    "Genetics (family history)",
+                    "Insulin resistance",
+                    "Increased levels of androgens (male hormones)"
+                ],
+                diagnosisTitle: "Diagnosis of PCOS",
+                diagnosisText: "Diagnosis typically involves blood tests, ultrasound, and a review of symptoms to identify irregularities in hormone levels, ovaries, and menstrual cycle.",
+                treatmentTitle: "Management and Treatment",
+                treatmentList: [
+                    "Medications to regulate periods (birth control pills or progestins)",
+                    "Insulin-sensitizing drugs (like Metformin)",
+                    "Anti-androgen medications to reduce excessive hair growth",
+                    "Lifestyle changes (diet and exercise)"
+                ],
+                homeRemediesTitle: "Home Remedies for PCOS",
+                homeRemediesList: [
+                    "Maintain a healthy diet, rich in fiber and low in refined sugars",
+                    "Exercise regularly to improve insulin sensitivity",
+                    "Try herbal remedies like cinnamon and spearmint tea",
+                    "Manage stress through yoga and meditation"
+                ],
+                footerText: "This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment."
+            },
+            hi: {
+                headerTitle: "पीसीओएस जानकारी",
+                sectionTitle: "पीसीओएस क्या है?",
+                sectionText: "पॉलीसिस्टिक ओवरी सिंड्रोम (PCOS) एक हार्मोनल विकार है जो महिलाओं को प्रभावित करता है, जिसके परिणामस्वरूप अनियमित मासिक धर्म, अधिक बालों की वृद्धि और अंडाशय में सिस्ट होते हैं।",
+                symptomsTitle: "पीसीओएस के लक्षण",
+                symptomsList: [
+                    "अनियमित या मिस्ड पीरियड्स",
+                    "अधिक बालों की वृद्धि (हिर्सुटिज़्म)",
+                    "एक्ने और तैलीय त्वचा",
+                    "बालों का पतला होना या गिरना",
+                    "गर्भवती होने में कठिनाई"
+                ],
+                causesTitle: "पीसीओएस के कारण",
+                causesList: [
+                    "हार्मोनल असंतुलन",
+                    "वंशानुगत (परिवार का इतिहास)",
+                    "इंसुलिन प्रतिरोध",
+                    "एंड्रोजेन्स (पुरुष हार्मोन) का बढ़ा हुआ स्तर"
+                ],
+                diagnosisTitle: "पीसीओएस की निदान",
+                diagnosisText: "निदान में आमतौर पर रक्त परीक्षण, अल्ट्रासाउंड और हार्मोन स्तर, अंडाशय और मासिक चक्र में असामान्यताओं की पहचान करने के लिए लक्षणों की समीक्षा की जाती है।",
+                treatmentTitle: "प्रबंधन और उपचार",
+                treatmentList: [
+                    "मासिक धर्म को नियंत्रित करने के लिए दवाइयाँ (बर्थ कंट्रोल पिल्स या प्रोजेस्टिन्स)",
+                    "इंसुलिन-संवेदनशीलता दवाएँ (जैसे मेटफॉर्मिन)",
+                    "अधिक बालों की वृद्धि को कम करने के लिए एंटी-एंड्रोजन दवाएँ",
+                    "जीवनशैली में बदलाव (आहार और व्यायाम)"
+                ],
+                homeRemediesTitle: "पीसीओएस के घरेलू उपचार",
+                homeRemediesList: [
+                    "स्वस्थ आहार बनाए रखें, जिसमें फाइबर अधिक और परिष्कृत शर्करा कम हो",
+                    "इंसुलिन संवेदनशीलता बढ़ाने के लिए नियमित रूप से व्यायाम करें",
+                    "दालचीनी और स्पीर्मिंट चाय जैसे हर्बल उपायों का प्रयास करें",
+                    "योग और ध्यान के माध्यम से तनाव को प्रबंधित करें"
+                ],
+                footerText: "यह जानकारी केवल सामान्य समझ के लिए है। निदान और उपचार के लिए हमेशा एक स्वास्थ्य विशेषज्ञ से परामर्श करें।"
+            },
+            ur: {
+                headerTitle: "پی سی او ایس کی معلومات",
+                sectionTitle: "پی سی او ایس کیا ہے؟",
+                sectionText: "پولی سسٹک اووری سنڈروم (PCOS) ایک ہارمونل بیماری ہے جو خواتین کو متاثر کرتی ہے، جس کے نتیجے میں غیر معمولی ماہواری، اضافی بالوں کی نشوونما اور اووریز میں سسٹ ہوتے ہیں۔",
+                symptomsTitle: "پی سی او ایس کی علامات",
+                symptomsList: [
+                    "غیر معمولی یا چھوٹے پیریڈز",
+                    "اضافی بالوں کی نشوونما (ہرسوٹزم)",
+                    "کیل مہاسے اور تیل والی جلد",
+                    "بالوں کا پتلا ہونا یا گرنا",
+                    "حمل ٹھہرانے میں دشواری"
+                ],
+                causesTitle: "پی سی او ایس کے اسباب",
+                causesList: [
+                    "ہارمونل عدم توازن",
+                    "جینیاتی (خاندانی تاریخ)",
+                    "انسولین مزاحمت",
+                    "اینڈروجنس (مردانہ ہارمونز) کا بڑھا ہوا سطح"
+                ],
+                diagnosisTitle: "پی سی او ایس کی تشخیص",
+                diagnosisText: "تشخیص میں عموماً خون کے ٹیسٹ، الٹرا ساؤنڈ اور ہارمون کی سطح، اووریز اور ماہواری کے چکر میں بے قاعدگیوں کی شناخت کرنے کے لیے علامات کا جائزہ لیا جاتا ہے۔",
+                treatmentTitle: "انتظامیہ اور علاج",
+                treatmentList: [
+                    "ماہواری کو باقاعدہ کرنے کے لیے ادویات (برٿ کنٹرول گولیاں یا پروجسٹن)",
+                    "انسولین کی حساسیت بڑھانے والی ادویات (جیسے میٹفارمین)",
+                    "اضافی بالوں کی نشوونما کو کم کرنے کے لیے اینٹی اینڈروجنس ادویات",
+                    "زندگی کے طریقوں میں تبدیلیاں (غذا اور ورزش)"
+                ],
+                homeRemediesTitle: "پی سی او ایس کے گھریلو علاج",
+                homeRemediesList: [
+                    "صحت مند غذا رکھیں، جو فائبر سے بھرپور اور خالص شکر کم ہو",
+                    "انسولین حساسیت بہتر بنانے کے لیے باقاعدگی سے ورزش کریں",
+                    "دالچینی اور اسپرمینٹ چائے جیسے جڑی بوٹیوں کے علاج آزما کریں",
+                    "یوگا اور مراقبہ کے ذریعے ذہنی دباؤ کو قابو کریں"
+                ],
+                footerText: "یہ معلومات صرف عمومی فہمی کے لیے ہے۔ تشخیص اور علاج کے لیے ہمیشہ ایک ماہر صحت سے مشورہ کریں۔"
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById("language-select").value;
+            const data = languageData[lang];
+
+            document.getElementById("header-title").textContent = data.headerTitle;
+            document.getElementById("section-title").textContent = data.sectionTitle;
+            document.getElementById("section-text").textContent = data.sectionText;
+            document.getElementById("symptoms-title").textContent = data.symptomsTitle;
+            document.getElementById("causes-title").textContent = data.causesTitle;
+            document.getElementById("diagnosis-title").textContent = data.diagnosisTitle;
+            document.getElementById("diagnosis-text").textContent = data.diagnosisText;
+            document.getElementById("treatment-title").textContent = data.treatmentTitle;
+            document.getElementById("home-remedies-title").textContent = data.homeRemediesTitle;
+            document.getElementById("footer-text").textContent = data.footerText;
+
+            updateList("symptoms-list", data.symptomsList);
+            updateList("causes-list", data.causesList);
+            updateList("treatment-list", data.treatmentList);
+            updateList("home-remedies-list", data.homeRemediesList);
+        }
+
+        function updateList(id, items) {
+            const list = document.getElementById(id);
+            list.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thyroid Disease Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f7f6;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+header {
+    background-color: #3498db;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.lang-switcher {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.lang-switcher button {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.lang-switcher button:hover {
+    background-color: #34495e;
+}
+
+.warning {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+    margin: 10px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.content {
+    line-height: 1.8;
+    font-size: 1rem;
+    color: #555;
+    transition: opacity 0.3s ease-in-out;
+}
+
+section {
+    padding: 20px;
+    margin: 10px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+img {
+    width: 150px;
+    margin: 20px auto;
+    display: block;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.whatsapp-btn:hover {
+    background-color: #1EBE57;
+}
+
+.whatsapp-btn i {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+/* Animation */
+.hint {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #4ddba0;
+    animation: blink 1s infinite;
+    text-decoration: none;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 600px) {
+    header {
+        font-size: 1.5rem; /* Adjust header font size for mobile */
+        padding: 10px; /* Adjust padding */
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .content {
+        font-size: 0.9rem;
+    }
+
+    .lang-switcher button {
+        padding: 6px 15px; /* Smaller button padding for mobile */
+        font-size: 0.9rem;
+    }
+
+    .whatsapp-btn {
+        font-size: 14px; /* Slightly smaller font size for the button */
+        padding: 8px 16px;
+    }
+
+    img {
+        width: 120px; /* Adjust image size for mobile screens */
+    }
+}
+
+    </style>
+</head>
+<body>
+<header>
+    <span id="header-en">Vitamin D Deficiency Information</span>
+    <span id="header-hi" style="display:none;">विटामिन D की कमी की जानकारी</span>
+    <span id="header-ur" style="display:none;">وٹامن ڈی کی کمی کی معلومات</span>
+</header>
+
+<div class="lang-switcher">
+    <button onclick="changeLanguage('en')">English</button>
+    <button onclick="changeLanguage('hi')">Hindi</button>
+    <button onclick="changeLanguage('ur')">Urdu</button>
+</div>
+
+<div id="warning" class="warning">
+    <span id="warning-en">Warning: This information is for educational purposes only. For diagnosis and treatment, always consult a qualified doctor.</span>
+    <span id="warning-hi" style="display:none;">चेतावनी: यह जानकारी केवल शैक्षिक उद्देश्यों के लिए है। निदान और उपचार के लिए हमेशा एक योग्य डॉक्टर से परामर्श करें।</span>
+    <span id="warning-ur" style="display:none;">خبردار: یہ معلومات صرف تعلیمی مقاصد کے لیے ہیں۔ تشخیص اور علاج کے لیے ہمیشہ ایک مستند ڈاکٹر سے مشورہ کریں۔</span>
+</div>
+
+<section id="disease-definition">
+    <h2><i class="fas fa-book icon"></i> <span id="definition-header-en">What is Vitamin D Deficiency?</span>
+        <span id="definition-header-hi" style="display:none;">विटामिन D की कमी क्या है?</span>
+        <span id="definition-header-ur" style="display:none;">وٹامن ڈی کی کمی کیا ہے؟</span>
+    </h2>
+    <div class="content" id="definition-en">
+        Vitamin D deficiency occurs when the body doesn't get enough vitamin D, which is essential for maintaining bone health, supporting the immune system, and regulating calcium levels. It can lead to weakened bones, osteoporosis, and other health problems. Vitamin D is produced by the body when exposed to sunlight, but it can also be obtained from certain foods and supplements.
+    </div>
+    <div class="content" id="definition-hi" style="display:none;">
+        विटामिन D की कमी तब होती है जब शरीर को पर्याप्त विटामिन D नहीं मिलता है, जो हड्डियों के स्वास्थ्य को बनाए रखने, प्रतिरक्षा प्रणाली का समर्थन करने, और कैल्शियम स्तर को नियंत्रित करने के लिए आवश्यक है। यह हड्डियों को कमजोर कर सकता है, ऑस्टियोपोरोसिस और अन्य स्वास्थ्य समस्याओं का कारण बन सकता है। विटामिन D शरीर द्वारा सूर्य के प्रकाश के संपर्क में आने पर उत्पन्न होता है, लेकिन इसे कुछ खाद्य पदार्थों और पूरक आहार से भी प्राप्त किया जा सकता है।
+    </div>
+    <div class="content" id="definition-ur" style="display:none;">
+        وٹامن ڈی کی کمی اس وقت ہوتی ہے جب جسم کو وٹامن ڈی کی کمی ہوتی ہے، جو ہڈیوں کی صحت کو برقرار رکھنے، مدافعتی نظام کی حمایت کرنے اور کیلشیم کی سطح کو منظم کرنے کے لیے ضروری ہے۔ یہ ہڈیوں کو کمزور کر سکتا ہے، آسٹیوپوروسس اور دیگر صحت کے مسائل کا سبب بن سکتا ہے۔ وٹامن ڈی جسم کے سورج کی روشنی کے رابطے سے پیدا ہوتا ہے، لیکن اسے بعض خوراکوں اور سپلیمنٹس سے بھی حاصل کیا جا سکتا ہے۔
+    </div>
+</section>
+
+<section id="causes">
+    <h2><i class="fas fa-cogs icon"></i> <span id="causes-header-en">Causes of Vitamin D Deficiency</span>
+        <span id="causes-header-hi" style="display:none;">विटामिन D की कमी के कारण</span>
+        <span id="causes-header-ur" style="display:none;">وٹامن ڈی کی کمی کے اسباب</span>
+    </h2>
+    <div class="content" id="causes-en">
+        Vitamin D deficiency can be caused by several factors, including lack of exposure to sunlight, poor dietary intake, certain medical conditions (like malabsorption disorders, liver disease, and kidney disease), obesity, and aging. People with darker skin also produce less vitamin D due to lower levels of a compound called melanin, which reduces the skin's ability to synthesize vitamin D.
+    </div>
+    <div class="content" id="causes-hi" style="display:none;">
+        विटामिन D की कमी कई कारणों से हो सकती है, जिसमें सूर्य के प्रकाश के संपर्क में कमी, खराब आहार, कुछ चिकित्सीय स्थितियाँ (जैसे कि अवशोषण विकार, यकृत रोग और गुर्दे की बीमारी), मोटापा और उम्र बढ़ना शामिल हैं। गहरे रंग की त्वचा वाले लोगों में भी कम मेलानिन नामक यौगिक की कमी के कारण विटामिन D का उत्पादन कम होता है, जो त्वचा की विटामिन D संश्लेषण की क्षमता को कम करता है।
+    </div>
+    <div class="content" id="causes-ur" style="display:none;">
+        وٹامن ڈی کی کمی کئی عوامل کی وجہ سے ہو سکتی ہے، بشمول سورج کی روشنی سے کم رابطہ، ناقص غذا، کچھ طبی حالات (جیسے کہ مالابسورپشن کے عارضے، جگر کی بیماری اور گردے کی بیماری)، موٹاپا اور عمر رسیدہ ہونا۔ گہری جلد والے افراد میں بھی کم میلانن نامی مرکب کی وجہ سے وٹامن ڈی کا پیداوار کم ہوتا ہے، جو جلد کی وٹامن ڈی کی تیاری کی صلاحیت کو کم کر دیتا ہے۔
+    </div>
+</section>
+
+<section id="symptoms">
+    <h2><i class="fas fa-exclamation-triangle icon"></i> <span id="symptoms-header-en">Symptoms of Vitamin D Deficiency</span>
+        <span id="symptoms-header-hi" style="display:none;">विटामिन D की कमी के लक्षण</span>
+        <span id="symptoms-header-ur" style="display:none;">وٹامن ڈی کی کمی کی علامات</span>
+    </h2>
+    <div class="content" id="symptoms-en">
+        Symptoms of vitamin D deficiency may include fatigue, muscle weakness, bone pain, frequent infections, depression, and hair loss. In severe cases, it can lead to rickets in children or osteomalacia in adults, conditions that cause softening and weakening of the bones. A blood test can confirm a vitamin D deficiency.
+    </div>
+    <div class="content" id="symptoms-hi" style="display:none;">
+        विटामिन D की कमी के लक्षणों में थकान, मांसपेशियों में कमजोरी, हड्डी में दर्द, बार-बार संक्रमण, अवसाद और बालों का झड़ना शामिल हो सकते हैं। गंभीर मामलों में, यह बच्चों में रिकेट्स या वयस्कों में ऑस्टियोमलेशिया का कारण बन सकता है, ऐसी स्थितियाँ जो हड्डियों के नरम होने और कमजोर होने का कारण बनती हैं। एक रक्त परीक्षण से विटामिन D की कमी की पुष्टि की जा सकती है।
+    </div>
+    <div class="content" id="symptoms-ur" style="display:none;">
+        وٹامن ڈی کی کمی کی علامات میں تھکاوٹ، پٹھوں کی کمزوری، ہڈیوں کا درد، بار بار انفیکشن، افسردگی اور بالوں کا جھڑنا شامل ہو سکتے ہیں۔ شدید معاملات میں، یہ بچوں میں رکٹس یا بڑوں میں آسٹیوملیشیا کا سبب بن سکتا ہے، ایسی حالتیں جو ہڈیوں کے نرم ہونے اور کمزور ہونے کا سبب بنتی ہیں۔ خون کا ٹیسٹ وٹامن ڈی کی کمی کی تصدیق کر سکتا ہے۔
+    </div>
+</section>
+
+<section id="diagnosis">
+    <h2><i class="fas fa-stethoscope icon"></i> <span id="diagnosis-header-en">Diagnosis of Vitamin D Deficiency</span>
+        <span id="diagnosis-header-hi" style="display:none;">विटामिन D की कमी का निदान</span>
+        <span id="diagnosis-header-ur" style="display:none;">وٹامن ڈی کی کمی کی تشخیص</span>
+    </h2>
+    <div class="content" id="diagnosis-en">
+        Vitamin D deficiency is diagnosed with a blood test that measures the levels of vitamin D in the blood. A 25-hydroxyvitamin D blood test is commonly used to assess vitamin D levels. If the levels are found to be low, your doctor will recommend appropriate treatment options based on the severity of the deficiency.
+    </div>
+    <div class="content" id="diagnosis-hi" style="display:none;">
+        विटामिन D की कमी का निदान रक्त परीक्षण से किया जाता है, जो रक्त में विटामिन D की मात्रा को मापता है। 25-हाइड्रॉक्सीविटामिन D रक्त परीक्षण का सामान्यत: उपयोग किया जाता है विटामिन D के स्तर का मूल्यांकन करने के लिए। यदि स्तर कम पाए जाते हैं, तो डॉक्टर आपकी कमी की गंभीरता के आधार पर उचित उपचार विकल्प सुझाएंगे।
+    </div>
+    <div class="content" id="diagnosis-ur" style="display:none;">
+        وٹامن ڈی کی کمی کی تشخیص خون کے ٹیسٹ سے کی جاتی ہے جو خون میں وٹامن ڈی کی مقدار کو ماپتا ہے۔ 25-ہائڈروکسی وٹامن ڈی خون کا ٹیسٹ عام طور پر وٹامن ڈی کی سطح کا اندازہ کرنے کے لیے استعمال کیا جاتا ہے۔ اگر سطح کم پائی جاتی ہے، تو آپ کا ڈاکٹر کمی کی شدت کی بنیاد پر مناسب علاج کے اختیارات تجویز کرے گا۔
+    </div>
+    <a href="https://wa.me/+1234567890?text=Hello%2C%20I%20would%20like%20to%20book%20a%20blood%20test%20for%20vitamin%20D." target="_blank" class="hint">
+        Click the button to book your blood test via WhatsApp.
+    </a>
+</section>
+
+<section id="treatment">
+    <h2><i class="fas fa-pills icon"></i> <span id="treatment-header-en">Treatment Options</span>
+        <span id="treatment-header-hi" style="display:none;">विटामिन D की कमी के उपचार</span>
+        <span id="treatment-header-ur" style="display:none;">وٹامن ڈی کی کمی کے علاج کے اختیارات</span>
+    </h2>
+    <div class="content" id="treatment-en">
+        Treatment for vitamin D deficiency generally involves vitamin D supplementation in the form of pills, liquids, or injections. The dosage depends on the severity of the deficiency. In addition to supplements, increasing exposure to sunlight and consuming foods rich in vitamin D (such as fatty fish, egg yolks, and fortified foods) can also help restore normal vitamin D levels.
+    </div>
+    <div class="content" id="treatment-hi" style="display:none;">
+        विटामिन D की कमी के उपचार में सामान्यतः विटामिन D की खुराक के रूप में गोलियाँ, तरल पदार्थ या इंजेक्शनों का उपयोग किया जाता है। खुराक की मात्रा कमी की गंभीरता पर निर्भर करती है। सप्लीमेंट्स के अलावा, सूर्य के प्रकाश के संपर्क को बढ़ाना और विटामिन D से भरपूर खाद्य पदार्थों (जैसे मछली, अंडे की जर्दी, और समृद्ध खाद्य पदार्थ) का सेवन भी सामान्य विटामिन D स्तर को बहाल करने में मदद कर सकता है।
+    </div>
+    <div class="content" id="treatment-ur" style="display:none;">
+        وٹامن ڈی کی کمی کا علاج عام طور پر وٹامن ڈی کی سپلیمنٹس کے طور پر گولیوں، مائع یا انجیکشن کی صورت میں کیا جاتا ہے۔ خوراک کی مقدار کمی کی شدت پر منحصر ہوتی ہے۔ سپلیمنٹس کے علاوہ، سورج کی روشنی کے رابطے میں اضافہ کرنا اور وٹامن ڈی سے بھرپور کھانے (جیسے مچھلی، انڈے کی زردی، اور افزائش والی خوراکیں) کا استعمال بھی معمول کے وٹامن ڈی کی سطح کو بحال کرنے میں مدد کر سکتا ہے۔
+    </div>
+</section>
+
+<section id="complications">
+    <h2><i class="fas fa-exclamation-circle icon"></i> <span id="complications-header-en">Complications of Vitamin D Deficiency</span>
+        <span id="complications-header-hi" style="display:none;">विटामिन D की कमी के जटिलताएँ</span>
+        <span id="complications-header-ur" style="display:none;">وٹامن ڈی کی کمی کی پیچیدگیاں</span>
+    </h2>
+    <div class="content" id="complications-en">
+        If left untreated, vitamin D deficiency can lead to serious complications such as weakened bones, osteoporosis, and fractures. It can also increase the risk of cardiovascular diseases, diabetes, and autoimmune disorders. Severe deficiency can result in muscle weakness and difficulty walking.
+    </div>
+    <div class="content" id="complications-hi" style="display:none;">
+        अगर इलाज न किया जाए तो विटामिन D की कमी गंभीर समस्याओं का कारण बन सकती है, जैसे कमजोर हड्डियाँ, ऑस्टियोपोरोसिस, और हड्डियों में फ्रैक्चर। यह हृदय रोग, मधुमेह और ऑटोइम्यून विकारों के खतरे को भी बढ़ा सकता है। गंभीर कमी मांसपेशियों में कमजोरी और चलने में कठिनाई का कारण बन सकती है।
+    </div>
+    <div class="content" id="complications-ur" style="display:none;">
+        اگر علاج نہ کیا جائے تو وٹامن ڈی کی کمی سنگین پیچیدگیوں کا سبب بن سکتی ہے جیسے کہ کمزور ہڈیاں، آسٹیوپوروسس اور فریکچر۔ یہ قلبی بیماریوں، ذیابیطس اور خود بخود امراض کے خطرے کو بھی بڑھا سکتا ہے۔ شدید کمی پٹھوں کی کمزوری اور چلنے میں دشواری کا سبب بن سکتی ہے۔
+    </div>
+</section>
+
+<section id="home-remedies">
+    <h2><i class="fas fa-leaf icon"></i> <span id="home-remedies-header-en">Home Remedies</span>
+        <span id="home-remedies-header-hi" style="display:none;">घर में इलाज</span>
+        <span id="home-remedies-header-ur" style="display:none;">گھر کے علاج</span>
+    </h2>
+    <div class="content" id="home-remedies-en">
+        Some home remedies for managing vitamin D deficiency include spending more time outdoors in sunlight, c
+
+ <!-- WhatsApp Booking Button -->
+    <a href="https://wa.me/+1234567890?text=Hello%2C%20I%20would%20like%20to%20book%20a%20blood%20test%20for%20thyroid%20disease." target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+        Book a Blood Test
+    </a>
+
+<script>
+    function changeLanguage(lang) {
+        // Header Text Changes
+        document.getElementById('header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        // Warning Text Changes
+        document.getElementById('warning-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('warning-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('warning-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        // Section Text Changes
+        document.getElementById('definition-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('definition-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('definition-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+        
+        document.getElementById('causes-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('causes-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('causes-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('symptoms-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('symptoms-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('symptoms-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('diagnosis-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('diagnosis-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('diagnosis-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('treatment-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('treatment-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('treatment-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('complications-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('complications-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('complications-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('home-remedies-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('home-remedies-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('home-remedies-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        // Content Changes
+        document.getElementById('definition-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('definition-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('definition-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('causes-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('causes-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('causes-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('symptoms-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('symptoms-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('symptoms-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('diagnosis-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('diagnosis-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('diagnosis-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('treatment-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('treatment-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('treatment-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('complications-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('complications-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('complications-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('home-remedies-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('home-remedies-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('home-remedies-ur').style.display = lang === 'ur' ? 'block' : 'none';
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cholesterol Information</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #58a6ff, #7d46f4);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        header {
+            background: #00796b;
+            color: white;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        header:hover {
+            background: #004d40;
+        }
+
+        .content {
+            background: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            margin: 15px 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            transition: all 0.3s ease;
+        }
+
+        select:focus {
+            border-color: #00796b;
+            background-color: #fff;
+        }
+
+        h2, h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background: #00796b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            border-top: 2px solid #00695c;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 20px auto;
+            background: linear-gradient(45deg, #007bff, #00bcd4);
+            color: white;
+            text-align: center;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: linear-gradient(45deg, #005f8c, #008c9e);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                width: 90%;
+                padding: 20px;
+            }
+
+            header {
+                font-size: 24px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header-title">Cholesterol Information</header>
+
+    <a href="/Healthy%20blood/vlog.html" class="back-button">Go Back</a>
+
+    <div class="content">
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="ur">Urdu</option>
+        </select>
+
+        <h2 id="section-title">What is Cholesterol?</h2>
+        <p id="section-text">Cholesterol is a waxy substance found in your blood. While your body needs some cholesterol to build healthy cells, having high levels can increase your risk of heart disease.</p>
+
+        <h3 id="symptoms-title">Symptoms of High Cholesterol</h3>
+        <ul id="symptoms-list">
+            <li>Generally no symptoms until it's too late</li>
+            <li>Chest pain or discomfort (when heart disease develops)</li>
+            <li>Fatty deposits around eyes or joints (in severe cases)</li>
+        </ul>
+
+        <h3 id="causes-title">Causes of High Cholesterol</h3>
+        <ul id="causes-list">
+            <li>Poor diet (high in saturated fats and trans fats)</li>
+            <li>Obesity</li>
+            <li>Lack of physical activity</li>
+            <li>Genetics</li>
+            <li>Age (cholesterol levels rise as you age)</li>
+        </ul>
+
+        <h3 id="diagnosis-title">Diagnosis of High Cholesterol</h3>
+        <p id="diagnosis-text">A blood test known as a lipid panel measures total cholesterol, LDL (bad cholesterol), HDL (good cholesterol), and triglycerides.</p>
+
+        <h3 id="treatment-title">Management and Treatment</h3>
+        <ul id="treatment-list">
+            <li>Dietary changes (lowering saturated and trans fats)</li>
+            <li>Exercise (increasing physical activity)</li>
+            <li>Medications (statins or other cholesterol-lowering drugs)</li>
+        </ul>
+
+        <h3 id="home-remedies-title">Home Remedies for High Cholesterol</h3>
+        <ul id="home-remedies-list">
+            <li>Increase soluble fiber intake (e.g., oats, beans, lentils)</li>
+            <li>Eat healthy fats (e.g., olive oil, avocado, nuts)</li>
+            <li>Exercise regularly (at least 30 minutes per day)</li>
+            <li>Quit smoking and reduce alcohol consumption</li>
+        </ul>
+    </div>
+
+    <footer id="footer-text">This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment.</footer>
+
+    <script>
+        const languageData = {
+            en: {
+                headerTitle: "Cholesterol Information",
+                sectionTitle: "What is Cholesterol?",
+                sectionText: "Cholesterol is a waxy substance found in your blood. While your body needs some cholesterol to build healthy cells, having high levels can increase your risk of heart disease.",
+                symptomsTitle: "Symptoms of High Cholesterol",
+                symptomsList: ["Generally no symptoms until it's too late", "Chest pain or discomfort (when heart disease develops)", "Fatty deposits around eyes or joints (in severe cases)"],
+                causesTitle: "Causes of High Cholesterol",
+                causesList: ["Poor diet (high in saturated fats and trans fats)", "Obesity", "Lack of physical activity", "Genetics", "Age (cholesterol levels rise as you age)"],
+                diagnosisTitle: "Diagnosis of High Cholesterol",
+                diagnosisText: "A blood test known as a lipid panel measures total cholesterol, LDL (bad cholesterol), HDL (good cholesterol), and triglycerides.",
+                treatmentTitle: "Management and Treatment",
+                treatmentList: ["Dietary changes (lowering saturated and trans fats)", "Exercise (increasing physical activity)", "Medications (statins or other cholesterol-lowering drugs)"],
+                homeRemediesTitle: "Home Remedies for High Cholesterol",
+                homeRemediesList: [
+                    "Increase soluble fiber intake (e.g., oats, beans, lentils)",
+                    "Eat healthy fats (e.g., olive oil, avocado, nuts)",
+                    "Exercise regularly (at least 30 minutes per day)",
+                    "Quit smoking and reduce alcohol consumption"
+                ],
+                footerText: "This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment."
+            },
+            hi: {
+                headerTitle: "कोलेस्ट्रॉल जानकारी",
+                sectionTitle: "कोलेस्ट्रॉल क्या है?",
+                sectionText: "कोलेस्ट्रॉल एक मोमी पदार्थ है जो आपके रक्त में पाया जाता है। जबकि आपके शरीर को स्वस्थ कोशिकाओं को बनाने के लिए कुछ कोलेस्ट्रॉल की आवश्यकता होती है, उच्च स्तर होने से हृदय रोग का खतरा बढ़ सकता है।",
+                symptomsTitle: "उच्च कोलेस्ट्रॉल के लक्षण",
+                symptomsList: ["आम तौर पर कोई लक्षण नहीं जब तक कि बहुत देर न हो जाए", "सीने में दर्द या बेचैनी (जब हृदय रोग विकसित होता है)", "आंखों या जोड़ो के आसपास वसायुक्त जमा (गंभीर मामलों में)"],
+                causesTitle: "उच्च कोलेस्ट्रॉल के कारण",
+                causesList: ["खराब आहार (संतृप्त वसा और ट्रांस वसा में उच्च)", "मोटापा", "शारीरिक गतिविधि की कमी", "जीन", "उम्र (कोलेस्ट्रॉल स्तर उम्र के साथ बढ़ते हैं)"],
+                diagnosisTitle: "उच्च कोलेस्ट्रॉल का निदान",
+                diagnosisText: "एक रक्त परीक्षण जिसे लिपिड पैनल कहा जाता है, कुल कोलेस्ट्रॉल, LDL (खराब कोलेस्ट्रॉल), HDL (अच्छा कोलेस्ट्रॉल), और ट्राइग्लिसराइड्स को मापता है।",
+                treatmentTitle: "प्रबंधन और उपचार",
+                treatmentList: ["आहार में बदलाव (संतृप्त और ट्रांस वसा को कम करना)", "व्यायाम (शारीरिक गतिविधि बढ़ाना)", "दवाएं (स्टैटिन्स या अन्य कोलेस्ट्रॉल-घटाने वाली दवाएं)"],
+                homeRemediesTitle: "उच्च कोलेस्ट्रॉल के घरेलू उपचार",
+                homeRemediesList: [
+                    "घुलनशील फाइबर का सेवन बढ़ाएं (जैसे ओट्स, बीन्स, मसूर)",
+                    "स्वस्थ वसा खाएं (जैसे जैतून का तेल, एवोकाडो, नट्स)",
+                    "नियमित रूप से व्यायाम करें (कम से कम 30 मिनट प्रति दिन)",
+                    "स्मोकिंग छोड़ें और शराब का सेवन कम करें"
+                ],
+                footerText: "यह जानकारी केवल सामान्य समझ के लिए है। निदान और उपचार के लिए हमेशा एक स्वास्थ्य विशेषज्ञ से परामर्श करें।"
+            },
+            ur: {
+                headerTitle: "کولیسٹرول کی معلومات",
+                sectionTitle: "کولیسٹرول کیا ہے؟",
+                sectionText: "کولیسٹرول ایک مومی مادہ ہے جو آپ کے خون میں پایا جاتا ہے۔ جب کہ آپ کے جسم کو صحت مند خلیوں کی تعمیر کے لیے کچھ کولیسٹرول کی ضرورت ہوتی ہے، لیکن اس کی زیادہ مقدار دل کی بیماری کے خطرے کو بڑھا سکتی ہے۔",
+                symptomsTitle: "اعلی کولیسٹرول کی علامات",
+                symptomsList: ["عام طور پر کوئی علامات نہیں جب تک کہ بہت دیر نہ ہو جائے", "سینے میں درد یا تکلیف (جب دل کی بیماری پیدا ہوتی ہے)", "آنکھوں یا جوڑوں کے ارد گرد چربی کے ذخائر (شدید معاملات میں)"],
+                causesTitle: "اعلی کولیسٹرول کے اسباب",
+                causesList: ["غذائی کمی (سیر شدہ چکنائی اور ٹرانس چکنائی میں زیادہ)", "موٹاپا", "جسمانی سرگرمی کی کمی", "جینیات", "عمر (کولیسٹرول کی سطح عمر کے ساتھ بڑھتی ہے)"],
+                diagnosisTitle: "اعلی کولیسٹرول کی تشخیص",
+                diagnosisText: "ایک خون کا ٹیسٹ جسے لپڈ پینل کہا جاتا ہے، کل کولیسٹرول، LDL (خراب کولیسٹرول)، HDL (اچھا کولیسٹرول)، اور ٹرائی گلیسرائڈز کو ناپتا ہے۔",
+                treatmentTitle: "انتظامیہ اور علاج",
+                treatmentList: ["غذائی تبدیلیاں (سیر شدہ اور ٹرانس چکنائی کو کم کرنا)", "ورزش (جسمانی سرگرمی بڑھانا)", "ادویات (اسٹیٹنز یا دیگر کولیسٹرول کم کرنے والی ادویات)"],
+                homeRemediesTitle: "اعلی کولیسٹرول کے گھریلو علاج",
+                homeRemediesList: [
+                    "حل پذیر فائبر کی مقدار بڑھائیں (جیسے اوٹس، پھلیاں، مسور)",
+                    "صحت مند چکنائیاں کھائیں (جیسے زیتون کا تیل، ایووکاڈو، میٹھے بادام)",
+                    "باقاعدگی سے ورزش کریں (دن میں کم از کم 30 منٹ)",
+                    "تمباکو نوشی چھوڑیں اور شراب کی مقدار کم کریں"
+                ],
+                footerText: "یہ معلومات صرف عمومی فہمی کے لیے ہے۔ تشخیص اور علاج کے لیے ہمیشہ ایک ماہر صحت سے مشورہ کریں۔"
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById("language-select").value;
+            const data = languageData[lang];
+
+            document.getElementById("header-title").textContent = data.headerTitle;
+            document.getElementById("section-title").textContent = data.sectionTitle;
+            document.getElementById("section-text").textContent = data.sectionText;
+            document.getElementById("symptoms-title").textContent = data.symptomsTitle;
+            document.getElementById("causes-title").textContent = data.causesTitle;
+            document.getElementById("diagnosis-title").textContent = data.diagnosisTitle;
+            document.getElementById("diagnosis-text").textContent = data.diagnosisText;
+            document.getElementById("treatment-title").textContent = data.treatmentTitle;
+            document.getElementById("home-remedies-title").textContent = data.homeRemediesTitle;
+            document.getElementById("footer-text").textContent = data.footerText;
+
+            updateList("symptoms-list", data.symptomsList);
+            updateList("causes-list", data.causesList);
+            updateList("treatment-list", data.treatmentList);
+            updateList("home-remedies-list", data.homeRemediesList);
+        }
+
+        function updateList(id, items) {
+            const list = document.getElementById(id);
+            list.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+</html>

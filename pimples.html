@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pimples Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7fc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: #00796b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .content {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+        }
+        select {
+            padding: 8px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 8px 0;
+        }
+        footer {
+            background: red;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header-title">Pimples Information</header>
+<div onclick="location.assign('/Healthy blood/vlog.html')" style="display:block;width:200px;margin:2rem auto;padding:1rem;background:linear-gradient(45deg,#007bff,#00bcd4);color:white;text-align:center;font-size:1.2rem;border-radius:30px;text-decoration:none;box-shadow:0 5px 10px rgba(0,0,0,.1);transition:all .3s ease;">Go to back page</div>
+
+    <div class="content">
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="ur">Urdu</option>
+        </select>
+
+        <h2 id="section-title">What are Pimples?</h2>
+        <p id="section-text">Pimples are small, red, and often painful bumps that appear on the skin, often caused by clogged hair follicles and oil buildup. They are common during puberty but can occur at any age.</p>
+
+        <h3 id="symptoms-title">Symptoms of Pimples</h3>
+        <ul id="symptoms-list">
+            <li>Red, swollen bumps on the skin</li>
+            <li>White or blackheads</li>
+            <li>Painful or tender areas on the skin</li>
+            <li>Occasional pus-filled bumps</li>
+        </ul>
+
+        <h3 id="causes-title">Causes of Pimples</h3>
+        <ul id="causes-list">
+            <li>Excess oil production</li>
+            <li>Clogged hair follicles</li>
+            <li>Bacterial infection</li>
+            <li>Hormonal changes (e.g., during puberty)</li>
+            <li>Stress and diet</li>
+        </ul>
+
+        <h3 id="diagnosis-title">Diagnosis of Pimples</h3>
+        <p id="diagnosis-text">Pimples can usually be diagnosed by visual examination. In severe cases, a dermatologist may perform additional tests to determine underlying causes or other skin conditions.</p>
+
+        <h3 id="treatment-title">Management and Treatment</h3>
+        <ul id="treatment-list">
+            <li>Topical creams with benzoyl peroxide or salicylic acid</li>
+            <li>Prescription medications (in severe cases)</li>
+            <li>Regular cleansing of the skin to avoid clogged pores</li>
+            <li>Use of oil-free skincare products</li>
+        </ul>
+
+        <h3 id="home-remedies-title">Home Remedies for Pimples</h3>
+        <ul id="home-remedies-list">
+            <li>Applying aloe vera gel to reduce inflammation</li>
+            <li>Using honey as a natural antibacterial agent</li>
+            <li>Applying ice packs to reduce swelling</li>
+            <li>Using tea tree oil as an antimicrobial solution</li>
+        </ul>
+    </div>
+
+    <footer id="footer-text">This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment.</footer>
+
+    <script>
+        const languageData = {
+            en: {
+                headerTitle: "Pimples Information",
+                sectionTitle: "What are Pimples?",
+                sectionText: "Pimples are small, red, and often painful bumps that appear on the skin, often caused by clogged hair follicles and oil buildup. They are common during puberty but can occur at any age.",
+                symptomsTitle: "Symptoms of Pimples",
+                symptomsList: [
+                    "Red, swollen bumps on the skin",
+                    "White or blackheads",
+                    "Painful or tender areas on the skin",
+                    "Occasional pus-filled bumps"
+                ],
+                causesTitle: "Causes of Pimples",
+                causesList: [
+                    "Excess oil production",
+                    "Clogged hair follicles",
+                    "Bacterial infection",
+                    "Hormonal changes (e.g., during puberty)",
+                    "Stress and diet"
+                ],
+                diagnosisTitle: "Diagnosis of Pimples",
+                diagnosisText: "Pimples can usually be diagnosed by visual examination. In severe cases, a dermatologist may perform additional tests to determine underlying causes or other skin conditions.",
+                treatmentTitle: "Management and Treatment",
+                treatmentList: [
+                    "Topical creams with benzoyl peroxide or salicylic acid",
+                    "Prescription medications (in severe cases)",
+                    "Regular cleansing of the skin to avoid clogged pores",
+                    "Use of oil-free skincare products"
+                ],
+                homeRemediesTitle: "Home Remedies for Pimples",
+                homeRemediesList: [
+                    "Applying aloe vera gel to reduce inflammation",
+                    "Using honey as a natural antibacterial agent",
+                    "Applying ice packs to reduce swelling",
+                    "Using tea tree oil as an antimicrobial solution"
+                ],
+                footerText: "This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment."
+            },
+            hi: {
+                headerTitle: "पिम्पल्स की जानकारी",
+                sectionTitle: "पिम्पल्स क्या हैं?",
+                sectionText: "पिम्पल्स छोटे, लाल और अक्सर दर्दनाक धब्बे होते हैं जो त्वचा पर दिखाई देते हैं, अक्सर बालों के रोम और तेल जमा होने से उत्पन्न होते हैं। यह किशोरावस्था के दौरान सामान्य होते हैं, लेकिन किसी भी आयु में हो सकते हैं।",
+                symptomsTitle: "पिम्पल्स के लक्षण",
+                symptomsList: [
+                    "त्वचा पर लाल, सूजे हुए धब्बे",
+                    "सफेद या काले धब्बे",
+                    "त्वचा पर दर्दनाक या कोमल क्षेत्र",
+                    "कभी-कभी मवाद से भरे धब्बे"
+                ],
+                causesTitle: "पिम्पल्स के कारण",
+                causesList: [
+                    "अधिक तेल उत्पादन",
+                    "बालों के रोम का रुकना",
+                    "แบक्टीरियल संक्रमण",
+                    "हार्मोनल बदलाव (जैसे कि किशोरावस्था के दौरान)",
+                    "तनाव और आहार"
+                ],
+                diagnosisTitle: "पिम्पल्स का निदान",
+                diagnosisText: "पिम्पल्स को सामान्यतः दृश्य परीक्षा द्वारा निदान किया जाता है। गंभीर मामलों में, त्वचा विशेषज्ञ अतिरिक्त परीक्षण कर सकते हैं ताकि अन्य त्वचा संबंधी स्थितियों या कारणों का निर्धारण किया जा सके।",
+                treatmentTitle: "प्रबंधन और उपचार",
+                treatmentList: [
+                    "बेंज़ॉयल पेरोक्साइड या सैलिसिलिक एसिड वाले टॉपिकल क्रीम",
+                    "पर्चे की दवाएं (गंभीर मामलों में)",
+                    "त्वचा को नियमित रूप से साफ़ करना ताकि रोम अवरुद्ध न हों",
+                    "तेल मुक्त स्किनकेयर उत्पादों का उपयोग"
+                ],
+                homeRemediesTitle: "पिम्पल्स के घरेलू उपचार",
+                homeRemediesList: [
+                    "सुगंधित घटक का उपयोग करके सूजन को कम करना",
+                    "हनी को प्राकृतिक एंटीबैक्टीरियल एजेंट के रूप में उपयोग करना",
+                    "सूजन को कम करने के लिए बर्फ के पैक का उपयोग करना",
+                    "टी ट्री ऑइल का उपयोग करना"
+                ],
+                footerText: "यह जानकारी केवल सामान्य समझ के लिए है। निदान और उपचार के लिए हमेशा एक स्वास्थ्य विशेषज्ञ से परामर्श करें।"
+            },
+            ur: {
+                headerTitle: "پمپل کی معلومات",
+                sectionTitle: "پمپل کیا ہیں؟",
+                sectionText: "پمپل چھوٹے، سرخ اور اکثر دردناک دھبے ہوتے ہیں جو جلد پر نمودار ہوتے ہیں، جو اکثر بالوں کے پٹیکوں اور تیل کے جمع ہونے کی وجہ سے ہوتے ہیں۔ یہ بلوغت کے دوران عام ہیں لیکن کسی بھی عمر میں ہو سکتے ہیں۔",
+                symptomsTitle: "پمپل کی علامات",
+                symptomsList: [
+                    "جلد پر سرخ، سوجے ہوئے دھبے",
+                    "سفید یا سیاہ دھبے",
+                    "جلد پر دردناک یا نرم علاقے",
+                    "کبھی کبھار پیپ سے بھرے دھبے"
+                ],
+                causesTitle: "پمپل کے اسباب",
+                causesList: [
+                    "زیادہ تیل کی پیداوار",
+                    "بالوں کے پٹیکے کی رکاوٹ",
+                    "بیکٹیریل انفیکشن",
+                    "ہارمونل تبدیلیاں (جیسے بلوغت کے دوران)",
+                    "دباؤ اور غذا"
+                ],
+                diagnosisTitle: "پمپل کی تشخیص",
+                diagnosisText: "پمپل کو عام طور پر بصری معائنہ کے ذریعے تشخیص کیا جا سکتا ہے۔ سنگین کیسوں میں، ایک ماہر جلد اضافی ٹیسٹ کر سکتا ہے تاکہ بنیادی وجوہات یا دیگر جلد کی حالتوں کا تعین کیا جا سکے۔",
+                treatmentTitle: "انتظامیہ اور علاج",
+                treatmentList: [
+                    "بنجوائل پریکسیڈ یا سیلیسیلک ایسڈ والے ٹاپیکل کریمز",
+                    "نسخہ کی دوائیں (شدید کیسوں میں)",
+                    "جلد کو باقاعدگی سے صاف کرنا تاکہ پٹیکے بند نہ ہوں",
+                    "تیل سے پاک سکن کیئر مصنوعات کا استعمال"
+                ],
+                homeRemediesTitle: "پمپل کے گھریلو علاج",
+                homeRemediesList: [
+                    "سوجن کو کم کرنے کے لیے ایلو ویرا جیل لگانا",
+                    "قدرتی اینٹی بیکٹیریل ایجنٹ کے طور پر شہد کا استعمال",
+                    "سوجن کو کم کرنے کے لیے برف کی تھیلیاں لگانا",
+                    "ٹی ٹری آئل کا استعمال"
+                ],
+                footerText: "یہ معلومات صرف عمومی فہمی کے لیے ہے۔ تشخیص اور علاج کے لیے ہمیشہ ایک ماہر صحت سے مشورہ کریں۔"
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById("language-select").value;
+            const data = languageData[lang];
+
+            document.getElementById("header-title").textContent = data.headerTitle;
+            document.getElementById("section-title").textContent = data.sectionTitle;
+            document.getElementById("section-text").textContent = data.sectionText;
+            document.getElementById("symptoms-title").textContent = data.symptomsTitle;
+            document.getElementById("causes-title").textContent = data.causesTitle;
+            document.getElementById("diagnosis-title").textContent = data.diagnosisTitle;
+            document.getElementById("diagnosis-text").textContent = data.diagnosisText;
+            document.getElementById("treatment-title").textContent = data.treatmentTitle;
+            document.getElementById("home-remedies-title").textContent = data.homeRemediesTitle;
+            document.getElementById("footer-text").textContent = data.footerText;
+
+            updateList("symptoms-list", data.symptomsList);
+            updateList("causes-list", data.causesList);
+            updateList("treatment-list", data.treatmentList);
+            updateList("home-remedies-list", data.homeRemediesList);
+        }
+
+        function updateList(id, items) {
+            const list = document.getElementById(id);
+            list.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+</html>

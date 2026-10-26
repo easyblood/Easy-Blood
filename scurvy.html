@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scurvy Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7fc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: #00796b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .content {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+        }
+        select {
+            padding: 8px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 8px 0;
+        }
+        footer {
+            background: red;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header-title">Scurvy Information</header>
+  <div onclick="location.assign('/Healthy blood/vlog.html')" style="display:block;width:200px;margin:2rem auto;padding:1rem;background:linear-gradient(45deg,#007bff,#00bcd4);color:white;text-align:center;font-size:1.2rem;border-radius:30px;text-decoration:none;box-shadow:0 5px 10px rgba(0,0,0,.1);transition:all .3s ease;">Go to back page</div>
+
+
+    <div class="content">
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="ur">Urdu</option>
+        </select>
+
+        <h2 id="section-title">What is Scurvy?</h2>
+        <p id="section-text">Scurvy is a disease caused by a deficiency of vitamin C, which is necessary for the synthesis of collagen in the body. It results in symptoms like fatigue, swollen gums, and easy bruising.</p>
+
+        <h3 id="symptoms-title">Symptoms of Scurvy</h3>
+        <ul id="symptoms-list">
+            <li>Fatigue</li>
+            <li>Swollen, bleeding gums</li>
+            <li>Joint pain</li>
+            <li>Easy bruising</li>
+            <li>Rough, dry skin</li>
+            <li>Hair loss</li>
+        </ul>
+
+        <h3 id="causes-title">Causes of Scurvy</h3>
+        <ul id="causes-list">
+            <li>Vitamin C deficiency due to poor diet</li>
+            <li>Inadequate intake of fruits and vegetables</li>
+            <li>Malabsorption disorders</li>
+            <li>Chronic alcohol use</li>
+        </ul>
+
+        <h3 id="diagnosis-title">Diagnosis of Scurvy</h3>
+        <p id="diagnosis-text">Scurvy is diagnosed through clinical symptoms, blood tests to check vitamin C levels, and other assessments by a healthcare professional.</p>
+
+        <h3 id="treatment-title">Management and Treatment</h3>
+        <ul id="treatment-list">
+            <li>Vitamin C supplementation</li>
+            <li>Dietary changes to include more fruits and vegetables</li>
+            <li>Oral or intravenous vitamin C if needed</li>
+        </ul>
+
+        <h3 id="home-remedies-title">Home Remedies for Scurvy</h3>
+        <ul id="home-remedies-list">
+            <li>Increase intake of citrus fruits like oranges, lemons, and grapefruits</li>
+            <li>Consume vegetables like bell peppers, tomatoes, and spinach</li>
+            <li>Include berries and kiwi in the diet</li>
+            <li>Drink fresh fruit juices like orange juice</li>
+        </ul>
+    </div>
+
+    <footer id="footer-text">This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment.</footer>
+
+    <script>
+        const languageData = {
+            en: {
+                headerTitle: "Scurvy Information",
+                sectionTitle: "What is Scurvy?",
+                sectionText: "Scurvy is a disease caused by a deficiency of vitamin C, which is necessary for the synthesis of collagen in the body. It results in symptoms like fatigue, swollen gums, and easy bruising.",
+                symptomsTitle: "Symptoms of Scurvy",
+                symptomsList: [
+                    "Fatigue",
+                    "Swollen, bleeding gums",
+                    "Joint pain",
+                    "Easy bruising",
+                    "Rough, dry skin",
+                    "Hair loss"
+                ],
+                causesTitle: "Causes of Scurvy",
+                causesList: [
+                    "Vitamin C deficiency due to poor diet",
+                    "Inadequate intake of fruits and vegetables",
+                    "Malabsorption disorders",
+                    "Chronic alcohol use"
+                ],
+                diagnosisTitle: "Diagnosis of Scurvy",
+                diagnosisText: "Scurvy is diagnosed through clinical symptoms, blood tests to check vitamin C levels, and other assessments by a healthcare professional.",
+                treatmentTitle: "Management and Treatment",
+                treatmentList: [
+                    "Vitamin C supplementation",
+                    "Dietary changes to include more fruits and vegetables",
+                    "Oral or intravenous vitamin C if needed"
+                ],
+                homeRemediesTitle: "Home Remedies for Scurvy",
+                homeRemediesList: [
+                    "Increase intake of citrus fruits like oranges, lemons, and grapefruits",
+                    "Consume vegetables like bell peppers, tomatoes, and spinach",
+                    "Include berries and kiwi in the diet",
+                    "Drink fresh fruit juices like orange juice"
+                ],
+                footerText: "This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment."
+            },
+            hi: {
+                headerTitle: "स्कर्वी जानकारी",
+                sectionTitle: "स्कर्वी क्या है?",
+                sectionText: "स्कर्वी एक बीमारी है जो विटामिन C की कमी के कारण होती है, जो शरीर में कोलेजन के संश्लेषण के लिए आवश्यक है। इसके लक्षणों में थकान, सूजे हुए मसूड़े, और आसानी से चोट लगना शामिल हैं।",
+                symptomsTitle: "स्कर्वी के लक्षण",
+                symptomsList: [
+                    "थकान",
+                    "सूजे हुए, खून बहते मसूड़े",
+                    "जोड़ों में दर्द",
+                    "आसानी से चोट लगना",
+                    "कठोर, सूखा त्वचा",
+                    "बालों का झड़ना"
+                ],
+                causesTitle: "स्कर्वी के कारण",
+                causesList: [
+                    "खराब आहार के कारण विटामिन C की कमी",
+                    "फलों और सब्जियों का अपर्याप्त सेवन",
+                    "अवशोषण विकार",
+                    "लंबे समय तक शराब का सेवन"
+                ],
+                diagnosisTitle: "स्कर्वी की निदान",
+                diagnosisText: "स्कर्वी को नैदानिक लक्षणों, विटामिन C के स्तर की जांच के लिए रक्त परीक्षणों, और स्वास्थ्य पेशेवर द्वारा अन्य आकलनों के माध्यम से निदान किया जाता है।",
+                treatmentTitle: "प्रबंधन और उपचार",
+                treatmentList: [
+                    "विटामिन C का सप्लीमेंटेशन",
+                    "फलों और सब्जियों को शामिल करने के लिए आहार में परिवर्तन",
+                    "आवश्यक होने पर मौखिक या इंट्रावेनस विटामिन C"
+                ],
+                homeRemediesTitle: "स्कर्वी के घरेलू उपचार",
+                homeRemediesList: [
+                    "साइट्रस फलों का सेवन बढ़ाएं जैसे कि संतरे, नींबू और अंगूर",
+                    "सब्जियों का सेवन करें जैसे कि शिमला मिर्च, टमाटर और पालक",
+                    "आहार में बेरीज और कीवी शामिल करें",
+                    "ताजे फलों का जूस पियें जैसे संतरे का रस"
+                ],
+                footerText: "यह जानकारी केवल सामान्य समझ के लिए है। निदान और उपचार के लिए हमेशा एक स्वास्थ्य विशेषज्ञ से परामर्श करें।"
+            },
+            ur: {
+                headerTitle: "اسکوروی کی معلومات",
+                sectionTitle: "اسکوروی کیا ہے؟",
+                sectionText: "اسکوروی ایک بیماری ہے جو وٹامن C کی کمی کی وجہ سے ہوتی ہے، جو جسم میں کولیجن کی ترکیب کے لیے ضروری ہے۔ اس کے نتیجے میں تھکاوٹ، سوجے ہوئے مسوڑھے، اور آسانی سے چوٹ لگنا جیسے علامات ظاہر ہوتی ہیں۔",
+                symptomsTitle: "اسکوروی کی علامات",
+                symptomsList: [
+                    "تھکاوٹ",
+                    "سوجے ہوئے، خون بہتے مسوڑھے",
+                    "جوڑوں میں درد",
+                    "آسانی سے چوٹ لگنا",
+                    "خشک اور کھردری جلد",
+                    "بالوں کا جھڑنا"
+                ],
+                causesTitle: "اسکوروی کے اسباب",
+                causesList: [
+                    "غذائی کمی کی وجہ سے وٹامن C کی کمی",
+                    "پھلوں اور سبزیوں کا ناکافی استعمال",
+                    "ہاضمے کے مسائل",
+                    "چالاکی سے شراب کا استعمال"
+                ],
+                diagnosisTitle: "اسکوروی کی تشخیص",
+                diagnosisText: "اسکوروی کا تشخیص کلینیکل علامات، وٹامن C کی سطح جانچنے کے لیے خون کے ٹیسٹ، اور دیگر جائزوں کے ذریعے کیا جاتا ہے۔",
+                treatmentTitle: "انتظامیہ اور علاج",
+                treatmentList: [
+                    "وٹامن C کا سپلیمنٹ",
+                    "پھلوں اور سبزیوں کو شامل کرنے کے لیے غذائی تبدیلیاں",
+                    "ضرورت پڑنے پر زبانی یا نسوں کے ذریعے وٹامن C"
+                ],
+                homeRemediesTitle: "اسکوروی کے گھریلو علاج",
+                homeRemediesList: [
+                    "سائٹرس پھلوں کا استعمال بڑھائیں جیسے کہ سنترے، لیموں اور انگور",
+                    "سبزیوں کا استعمال کریں جیسے کہ شملہ مرچ، ٹماٹر اور اسپینچ",
+                    "غذائی میں بیریز اور کیوی شامل کریں",
+                    "تازہ پھلوں کے رس پیئیں جیسے سنترے کا رس"
+                ],
+                footerText: "یہ معلومات صرف عمومی فہمی کے لیے ہے۔ تشخیص اور علاج کے لیے ہمیشہ ایک ماہر صحت سے مشورہ کریں۔"
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById("language-select").value;
+            const data = languageData[lang];
+
+            document.getElementById("header-title").textContent = data.headerTitle;
+            document.getElementById("section-title").textContent = data.sectionTitle;
+            document.getElementById("section-text").textContent = data.sectionText;
+            document.getElementById("symptoms-title").textContent = data.symptomsTitle;
+            document.getElementById("causes-title").textContent = data.causesTitle;
+            document.getElementById("diagnosis-title").textContent = data.diagnosisTitle;
+            document.getElementById("diagnosis-text").textContent = data.diagnosisText;
+            document.getElementById("treatment-title").textContent = data.treatmentTitle;
+            document.getElementById("home-remedies-title").textContent = data.homeRemediesTitle;
+            document.getElementById("footer-text").textContent = data.footerText;
+
+            updateList("symptoms-list", data.symptomsList);
+            updateList("causes-list", data.causesList);
+            updateList("treatment-list", data.treatmentList);
+            updateList("home-remedies-list", data.homeRemediesList);
+        }
+
+        function updateList(id, items) {
+            const list = document.getElementById(id);
+            list.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thyroid Disease Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f7f6;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+header {
+    background-color: #3498db;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.lang-switcher {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.lang-switcher button {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.lang-switcher button:hover {
+    background-color: #34495e;
+}
+
+.warning {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+    margin: 10px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.content {
+    line-height: 1.8;
+    font-size: 1rem;
+    color: #555;
+    transition: opacity 0.3s ease-in-out;
+}
+
+section {
+    padding: 20px;
+    margin: 10px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+img {
+    width: 150px;
+    margin: 20px auto;
+    display: block;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.whatsapp-btn:hover {
+    background-color: #1EBE57;
+}
+
+.whatsapp-btn i {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+/* Animation */
+.hint {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #4ddba0;
+    animation: blink 1s infinite;
+    text-decoration: none;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 600px) {
+    header {
+        font-size: 1.5rem; /* Adjust header font size for mobile */
+        padding: 10px; /* Adjust padding */
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .content {
+        font-size: 0.9rem;
+    }
+
+    .lang-switcher button {
+        padding: 6px 15px; /* Smaller button padding for mobile */
+        font-size: 0.9rem;
+    }
+
+    .whatsapp-btn {
+        font-size: 14px; /* Slightly smaller font size for the button */
+        padding: 8px 16px;
+    }
+
+    img {
+        width: 120px; /* Adjust image size for mobile screens */
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <span id="header-en">Obesity Disease Information</span>
+    <span id="header-hi" style="display:none;">मोटापा रोग जानकारी</span>
+    <span id="header-ur" style="display:none;">موٹاپا کی بیماری کی معلومات</span>
+</header>
+
+<div class="lang-switcher">
+    <button onclick="changeLanguage('en')">English</button>
+    <button onclick="changeLanguage('hi')">Hindi</button>
+    <button onclick="changeLanguage('ur')">Urdu</button>
+</div>
+
+<div id="warning" class="warning">
+    <span id="warning-en">Warning: This information is for educational purposes only. For diagnosis and treatment, always consult a qualified doctor.</span>
+    <span id="warning-hi" style="display:none;">चेतावनी: यह जानकारी केवल शैक्षिक उद्देश्यों के लिए है। निदान और उपचार के लिए हमेशा एक योग्य डॉक्टर से परामर्श करें।</span>
+    <span id="warning-ur" style="display:none;">خبردار: یہ معلومات صرف تعلیمی مقاصد کے لیے ہیں۔ تشخیص اور علاج کے لیے ہمیشہ ایک مستند ڈاکٹر سے مشورہ کریں۔</span>
+</div>
+
+<section id="disease-definition">
+    <h2><i class="fas fa-book icon"></i> <span id="definition-header-en">What is Obesity?</span>
+        <span id="definition-header-hi" style="display:none;">मोटापा रोग क्या है?</span>
+        <span id="definition-header-ur" style="display:none;">موٹاپا کی بیماری کیا ہے؟</span>
+    </h2>
+    <div class="content" id="definition-en">
+        Obesity is a medical condition characterized by excessive fat accumulation in the body, which can have negative effects on health. It is often measured using the body mass index (BMI), where a BMI of 30 or higher is considered obese.
+    </div>
+    <div class="content" id="definition-hi" style="display:none;">
+        मोटापा एक चिकित्सा स्थिति है, जिसमें शरीर में अत्यधिक वसा का संचय होता है, जो स्वास्थ्य पर नकारात्मक प्रभाव डाल सकता है। इसे अक्सर बॉडी मास इंडेक्स (BMI) के माध्यम से मापा जाता है, जहाँ BMI 30 या उससे अधिक को मोटापे के रूप में माना जाता है।
+    </div>
+    <div class="content" id="definition-ur" style="display:none;">
+        موٹاپا ایک طبی حالت ہے جس میں جسم میں زیادہ چربی کا جمع ہونا ہوتا ہے جو صحت پر منفی اثرات مرتب کر سکتا ہے۔ اسے اکثر باڈی ماس انڈیکس (BMI) کے ذریعے ناپا جاتا ہے، جہاں BMI 30 یا اس سے زیادہ کو موٹاپا سمجھا جاتا ہے۔
+    </div>
+</section>
+
+<section id="causes">
+    <h2><i class="fas fa-cogs icon"></i> <span id="causes-header-en">Causes of Obesity</span>
+        <span id="causes-header-hi" style="display:none;">मोटापा रोग के कारण</span>
+        <span id="causes-header-ur" style="display:none;">موٹاپا کی بیماری کے اسباب</span>
+    </h2>
+    <div class="content" id="causes-en">
+        Obesity can be caused by various factors such as poor diet, lack of physical activity, genetics, hormonal imbalances, and certain medical conditions like hypothyroidism or polycystic ovary syndrome (PCOS).
+    </div>
+    <div class="content" id="causes-hi" style="display:none;">
+        मोटापा कई कारणों से हो सकता है, जैसे खराब आहार, शारीरिक गतिविधि की कमी, आनुवंशिकी, हार्मोनल असंतुलन, और कुछ चिकित्सा स्थितियां जैसे हाइपोथायरायडिज्म या पॉलीसिस्टिक अंडकोष सिंड्रोम (PCOS)।
+    </div>
+    <div class="content" id="causes-ur" style="display:none;">
+        موٹاپا مختلف عوامل کی وجہ سے ہو سکتا ہے جیسے خراب غذا، جسمانی سرگرمی کی کمی، جینیاتیات، ہارمونل عدم توازن، اور کچھ طبی حالتیں جیسے ہائپوتھائیرائڈیزم یا پالی سسٹک اووری سنڈروم (PCOS)۔
+    </div>
+</section>
+
+<section id="symptoms">
+    <h2><i class="fas fa-exclamation-triangle icon"></i> <span id="symptoms-header-en">Symptoms of Obesity</span>
+        <span id="symptoms-header-hi" style="display:none;">मोटापा रोग के लक्षण</span>
+        <span id="symptoms-header-ur" style="display:none;">موٹاپا کی بیماری کی علامات</span>
+    </h2>
+    <div class="content" id="symptoms-en">
+        Symptoms of obesity include excessive body fat, difficulty in physical activity, shortness of breath, joint pain, and an increased risk of chronic conditions such as diabetes, heart disease, and high blood pressure.
+    </div>
+    <div class="content" id="symptoms-hi" style="display:none;">
+        मोटापा के लक्षणों में अत्यधिक शरीर की वसा, शारीरिक गतिविधियों में कठिनाई, सांस की कमी, जोड़ों में दर्द, और पुरानी बीमारियों जैसे मधुमेह, हृदय रोग और उच्च रक्तचाप का जोखिम बढ़ना शामिल हैं।
+    </div>
+    <div class="content" id="symptoms-ur" style="display:none;">
+        موٹاپا کی علامات میں زیادہ جسمانی چربی، جسمانی سرگرمیوں میں مشکل، سانس کی کمی، جوڑوں کا درد، اور دائمی بیماریوں جیسے ذیابیطس، دل کی بیماری اور بلند فشار خون کا بڑھا ہوا خطرہ شامل ہیں۔
+    </div>
+</section>
+
+<section id="diagnosis">
+     <h2><i class="fas fa-stethoscope icon"></i> <span id="diagnosis-header-en">Diagnosis of Obesity</span>
+        <span id="diagnosis-header-hi" style="display:none;">मोटापा रोग का निदान</span>
+        <span id="diagnosis-header-ur" style="display:none;">موٹاپا کی بیماری کی تشخیص</span>
+    </h2>
+    <div class="content" id="diagnosis-en">
+        Diagnosis of obesity involves evaluating body mass index (BMI), waist circumference, and overall health. Doctors may also assess diet, physical activity, and conduct additional tests to check for associated health problems.
+    </div>
+    <div class="content" id="diagnosis-hi" style="display:none;">
+        मोटापे का निदान बॉडी मास इंडेक्स (BMI), कमर की परिधि और समग्र स्वास्थ्य का मूल्यांकन करने में शामिल है। डॉक्टर आहार, शारीरिक गतिविधि का भी आकलन कर सकते हैं और संबंधित स्वास्थ्य समस्याओं की जांच करने के लिए अतिरिक्त परीक्षण कर सकते हैं।
+    </div>
+    <div class="content" id="diagnosis-ur" style="display:none;">
+        موٹاپے کی تشخیص میں باڈی ماس انڈیکس (BMI)، کمر کی circumference اور مجموعی صحت کا جائزہ لینا شامل ہے۔ ڈاکٹر غذا، جسمانی سرگرمی کا بھی اندازہ لگا سکتے ہیں اور متعلقہ صحت کے مسائل کی جانچ کے لیے اضافی ٹیسٹ کر سکتے ہیں۔
+    </div>
+ <a href="https://wa.me/+1234567890?text=Hello%2C%20I%20would%20like%20to%20book%20a%20blood%20test%20for%20obesity." target="_blank" class="hint">
+        Click the button to book your blood test via WhatsApp.
+    </a>
+</section>
+
+<section id="treatment">
+    <h2><i class="fas fa-pills icon"></i> <span id="treatment-header-en">Treatment Options</span>
+        <span id="treatment-header-hi" style="display:none;">मोटापा रोग के उपचार विकल्प</span>
+        <span id="treatment-header-ur" style="display:none;">موٹاپا کی بیماری کے علاج کے اختیارات</span>
+    </h2>
+    <div class="content" id="treatment-en">
+        Treatment options for obesity include lifestyle changes such as a balanced diet, regular physical activity, weight loss medications, and in some cases, bariatric surgery.
+    </div>
+    <div class="content" id="treatment-hi" style="display:none;">
+        मोटापे के उपचार विकल्पों में जीवनशैली में बदलाव शामिल हैं जैसे संतुलित आहार, नियमित शारीरिक गतिविधि, वजन घटाने की दवाएं, और कुछ मामलों में बैरियाट्रिक सर्जरी।
+    </div>
+    <div class="content" id="treatment-ur" style="display:none;">
+        موٹاپے کے علاج کے اختیارات میں طرز زندگی میں تبدیلیاں شامل ہیں جیسے متوازن غذا، باقاعدہ جسمانی سرگرمی، وزن کم کرنے کی دوائیں، اور بعض معاملات میں بیریاٹرک سرجری۔
+    </div>
+</section>
+
+<section id="complications">
+    <h2><i class="fas fa-exclamation-circle icon"></i> <span id="complications-header-en">Complications of Obesity</span>
+        <span id="complications-header-hi" style="display:none;">मोटापा रोग के जटिलताएँ</span>
+        <span id="complications-header-ur" style="display:none;">موٹاپا کی بیماری کی پیچیدگیاں</span>
+    </h2>
+    <div class="content" id="complications-en">
+        Complications of untreated obesity can include heart disease, diabetes, high blood pressure, stroke, joint problems, and certain types of cancer.
+    </div>
+    <div class="content" id="complications-hi" style="display:none;">
+        अनुपचारित मोटापे की जटिलताओं में हृदय रोग, मधुमेह, उच्च रक्तचाप, स्ट्रोक, जोड़ों की समस्याएं और कुछ प्रकार के कैंसर शामिल हो सकते हैं।
+    </div>
+    <div class="content" id="complications-ur" style="display:none;">
+        غیر علاج شدہ موٹاپے کی پیچیدگیوں میں دل کی بیماری، ذیابیطس، بلند فشار خون، فالج، جوڑوں کے مسائل اور کچھ اقسام کے کینسر شامل ہو سکتے ہیں۔
+    </div>
+</section>
+
+<section id="home-remedies">
+    <h2><i class="fas fa-leaf icon"></i> <span id="home-remedies-header-en">Home Remedies</span>
+        <span id="home-remedies-header-hi" style="display:none;">घर में इलाज</span>
+        <span id="home-remedies-header-ur" style="display:none;">گھر کے علاج</span>
+    </h2>
+    <div class="content" id="home-remedies-en">
+       Some home remedies for managing obesity include drinking water before meals, eating smaller portions, increasing physical activity, and incorporating natural fat-burning foods like green tea, ginger, and garlic into the diet.
+    </div>
+    <div class="content" id="home-remedies-hi" style="display:none;">
+        मोटापे के प्रबंधन के लिए कुछ घरेलू उपचारों में भोजन से पहले पानी पीना, छोटे हिस्से में भोजन करना, शारीरिक गतिविधि बढ़ाना, और आहार में ग्रीन टी, अदरक और लहसुन जैसे प्राकृतिक वसा-जलाने वाले खाद्य पदार्थों को शामिल करना शामिल है।
+    </div>
+    <div class="content" id="home-remedies-ur" style="display:none;">
+        موٹاپے کے انتظام کے لیے کچھ گھریلو علاج میں کھانے سے پہلے پانی پینا، چھوٹے حصوں میں کھانا کھانا، جسمانی سرگرمی بڑھانا، اور غذا میں سبز چائے، ادرک اور لہسن جیسے قدرتی چربی پگھلانے والے غذائیں شامل کرنا شامل ہیں۔
+    </div>
+</section>
+
+<!-- WhatsApp Booking Button -->
+    <a href="https://wa.me/+1234567890?text=Hello%2C%20I%20would%20like%20to%20book%20a%20blood%20test%20for%20obesity." target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+        Book a Blood Test
+    </a>
+
+
+<script>
+    function changeLanguage(lang) {
+        // Header Text Changes
+        document.getElementById('header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        // Warning Text Changes
+        document.getElementById('warning-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('warning-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('warning-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        // Section Text Changes
+        document.getElementById('definition-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('definition-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('definition-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+        
+        document.getElementById('causes-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('causes-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('causes-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('symptoms-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('symptoms-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('symptoms-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('diagnosis-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('diagnosis-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('diagnosis-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('treatment-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('treatment-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('treatment-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('complications-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('complications-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('complications-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('home-remedies-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('home-remedies-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('home-remedies-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        // Content Changes
+        document.getElementById('definition-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('definition-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('definition-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('causes-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('causes-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('causes-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('symptoms-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('symptoms-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('symptoms-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('diagnosis-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('diagnosis-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('diagnosis-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('treatment-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('treatment-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('treatment-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('complications-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('complications-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('complications-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('home-remedies-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('home-remedies-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('home-remedies-ur').style.display = lang === 'ur' ? 'block' : 'none';
+    }
+</script>
+
+</body>
+</html>

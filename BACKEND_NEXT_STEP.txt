@@ -1,0 +1,23 @@
+Easy Blood Online Backend Integration
+
+The current package is frontend + browser storage and is ready for a backend connection.
+For real patient QR verification from any phone, connect these API endpoints:
+
+POST /api/auth/login
+POST /api/reports
+GET  /api/reports/:reportId
+GET  /api/reports/:reportId/verify
+POST /api/reports/:reportId/pdf
+
+Recommended database fields:
+report_id, patient_id, patient_name, age, gender, mobile, test_name,
+result_json, barcode, report_date, verified, pdf_url, created_at.
+
+Security requirements:
+- Management password must be stored as a salted password hash on the server, never in HTML/JavaScript.
+- Staff accounts must have limited permissions.
+- Patient QR should expose only a random report token, not internal database IDs.
+- Use HTTPS and server-side authorization.
+- Do not put patient reports in public/static folders.
+
+The UI includes a Public Site URL setting so the QR target can later point to the deployed patient verification page.

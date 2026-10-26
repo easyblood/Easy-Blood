@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Easy Blood provides home visit blood test services in Bhiwandi, Mumbra, Mumbai, and surrounding areas. Book a test with us today for accurate and affordable results." />
+
+    <title>Easy Blood | Home Visit Collection Center</title>
+    <link rel="stylesheet" href="style.css">
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+       
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="Asset/image/logo.png" alt="Logo" />
+        </div>
+        <nav class="navbar-links" id="navbar-links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#package">Packages</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#faqs">Faq</a></li>
+                <li><a href="doctor-consultation.html">Doctor Consultation</a></li>
+                <li><a href="vlog.html">Health blog</a></li>
+                <li><a href="certification.html">Certificate</a></li
+                <li><a href="LabCorner.html">Lab personal</a></li>
+
+            </ul>
+        </nav>
+        <div class="icons">
+          <a href="https://wa.me/7559445660" class="whatsapp-icon" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 32px; height: 32px;">
+        </a>
+
+<!-- Call link -->
+<a href="tel:755 944 5660" class="call-icon">
+  
+  <img src="Asset/image/call-icon.png" alt="Call">
+</a>
+            <a href="#" class="cart-icon" onclick="toggleCartPopup(event)">
+                <img src="Asset/image/cart-icon.png" alt="Cart">
+                <span id="cart-count" class="cart-count">0</span> <!-- Cart count -->
+            </a>
+        </div>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+<!-- Search Bar with Lab Selector -->
+<div class="search-container">
+  <!-- Lab Selection -->
+  <div class="lab-selection-wrapper">
+    <select id="lab-selection" onchange="updateTestsBasedOnLab()">
+      <option value="redcliffe" selected>redcliffe</option>
+      <option value="thyrocare">Thyrocare</option>
+      <option value="kk_lab">K.K Lab (Bhiwandi)</option>
+    </select>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-bar-wrapper">
+    <input type="text" id="search-bar" placeholder="Search for blood tests..." oninput="searchBloodTest()">
+    <button onclick="searchBloodTest()" class="search-button">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+</div>
+
+
+<!-- Search Results -->
+<div id="search-results" class="search-results"></div>
+
+<!-- Cart Popup -->
+<div id="cart-popup" class="cart-popup">
+    <div class="cart-content">
+        <h3>Your Cart</h3>
+        <ul id="cart-items"></ul>
+        <!-- Home Visit Charge Section -->
+<div class="home-visit-charge-section">
+    <p id="home-visit-charge">Home Visit Charge: ₹0</p>
+    <p id="remaining-amount-message"></p>
+</div>
+ <!-- Hardcopy Report Option -->
+ <div class="hardcopy-option">
+  <input type="checkbox" id="hardcopy-checkbox" onchange="updateCartPopup()" />
+ <label for="hardcopy-checkbox">
+  Want a hardcopy report on home +₹100 <br>
+  <span style="font-weight: normal; font-size: 0.9em; color: #555;">
+    Or visit our center and get the hardcopy report for <strong>FREE!</strong>
+  </span>
+</label>
+</div>
+<p id="hardcopy-message"></p>
+
+        <div class="cart-total">
+            <strong>Total: ₹<span id="cart-total">0</span></strong>
+        </div>
+  
+        <button onclick="clearCart()">Clear Cart</button>
+        <button onclick="closeCartPopup()">Close Cart</button>
+        
+        <!-- Booking on WhatsApp -->
+        <a id="whatsapp-booking" href="#" class="whatsapp-booking-button" target="_blank"><i class="fab fa-whatsapp"></i>
+            Book on WhatsApp
+        </a>
+    </div>
+</div>
+
+        <!-- Image Slider Section -->
+<div class="carousel-container" id="carousel">
+        <div class="carousel-wrapper">
+            <div class="carousel-slide">
+                <img src="Asset/image/image1.png" alt="Image 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="Asset/image/image2.png" alt="Image 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="Asset/image/image3.png" alt="Image 3">
+            </div>
+        </div>
+
+        <!-- Dots Navigation -->
+        <div class="dots">
+            <div class="dot" onclick="goToSlide(0)"></div>
+            <div class="dot" onclick="goToSlide(1)"></div>
+            <div class="dot" onclick="goToSlide(2)"></div>
+        </div>
+    </div>
+
+
+    <!--Banner -->
+    
+  
+
+    <!-- Search Bar for service area Section -->
+   
+        
+   
+  <div class="container-wrapper">
+    <!-- Upload Prescription -->
+    <div class="box">
+        <h2>
+            <img src="https://img.icons8.com/material-outlined/20/000000/document.png" alt="Doc"><br />
+            Upload Prescription
+        </h2>
+        <p>Send via WhatsApp</p>
+        <a href="https://wa.me/7559445660?text=I%20want%20to%20send%20my%20prescription%20for%20review." target="_blank" class="btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Send
+        </a>
+    </div>
+
+    <!-- Verify Service Area -->
+    <div class="box">
+        <h2>Verify Service Area</h2>
+        <button id="location-btn" onclick="getLocation()">Check Availability</button>
+        <div id="loader"></div>
+        <p id="status"></p>
+    </div>
+</div>
+
+
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search areas (e.g., Bhiwandi,Mumbra)". oninput="showResults()" autocomplete="off">
+  <i class="fas fa-search" id="searchIcon"></i>
+
+
+<div id="serviceAreaResults" class="service-area-results"></div>
+</div>
+
+
+<!-- Pop-up Notification -->
+<div id="popupNotification" class="popup-notification" style="display: none;">
+  <div class="popup-content">
+    <p id="popupMessage"></p>
+    <button id="popupButton">Close</button>
+  </div>
+</div>
+
+ <!--document upload-->
+ <!--package slide-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Cards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <style>
+        .section { width: 90%; margin: auto; padding: 20px 0; }
+        .section-title { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
+        .test-slider { width: 100%; }
+        .test-card { background: #ffffff; padding: 15px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 10px; }
+        .test-header { background: #2c665d; color: white; padding: 15px; border-radius: 15px 15px 0 0; font-size: 16px; }
+        .test-info { display: flex; justify-content: space-between; padding: 15px; font-size: 14px; color: #333; }
+        .button-container { display: flex; justify-content: space-between; padding: 10px; }
+        button { padding: 10px 15px; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; }
+        .view-details { background: white; border: 2px solid #2c665d; color: #2c665d; }
+        .add-cart { background: linear-gradient(to right, #ff9900, #ff6600); color: white; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+        .modal-content { background: white; padding: 20px; border-radius: 15px; width: 90%; max-width: 400px; margin: 100px auto; }
+        .close { float: right; cursor: pointer; }
+        /* WhatsApp Inquiry Button */
+.whatsapp-inquiry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: bold;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  border: none;
+  width: 100%;
+  max-width: 130px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.whatsapp-inquiry img {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+.whatsapp-inquiry:hover {
+  background: #128C7E;
+  transform: scale(1.05);
+}
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="section-title">Special Offer for sunday Camp only from redcliffe Labs</div>
+        <div class="test-slider">
+          <div class="test-card" onclick="openModal('vitamin D', 'vitamin D.')">
+  <div class="test-header">vitamin D</div>
+  <div class="test-info">
+    <span><del>₹1600</del> <b>₹599</b> (% Off)</span>
+    <span>Reports in up to 24 hours</span>
+  </div>
+  <div class="button-container">
+    <button class="view-details">View Details</button>
+    <a class="whatsapp-inquiry" href="https://wa.me/7559445660?text=I'm%20interested%20in%20the%20Vitamin%20D%20test." target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Inquiry via WhatsApp
+    </a>
+  </div>
+            </div>
+            <div class="test-card" onclick="openModal('HBA1C', 'HBA1C.')">
+  <div class="test-header">HBA1C</div>
+  <div class="test-info">
+    <span><del>₹440</del> <b>₹199</b> (% Off)</span>
+    <span>Reports in up to 24 hours</span>
+  </div>
+  <div class="button-container">
+    <button class="view-details">View Details</button>
+  <a class="whatsapp-inquiry" href="https://wa.me/7559445660?text=I'm%20interested%20in%20the%20HBA1C%20test." target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Inquiry via WhatsApp
+</a>
+
+  </div>
+</div>
+ <div class="test-card" onclick="openModal('lipid profile', 'lipid profile.')">
+   <div class="test-header">Lipid Profile</div>
+   <div class="test-info">
+     <span><del>₹960</del> <b>₹299</b> (% Off)</span>
+     <span>Reports in up to 24 hours</span>
+   </div>
+   <div class="button-container">
+     <button class="view-details">View Details</button>
+      <a class="whatsapp-inquiry" href="https://wa.me/7559445660?text=I'm%20interested%20in%20the% lipid%20Profile%20test." target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Inquiry via WhatsApp
+  </a>
+   </div>
+ </div>
+  <div class="test-card" onclick="openModal('vitamin D', 'vitamin D.')">
+   <div class="test-header">vitamin D</div>
+   <div class="test-info">
+     <span><del>₹1600</del> <b>₹599</b> (% Off)</span>
+     <span>Reports in up to 24 hours</span>
+   </div>
+   <div class="button-container">
+     <button class="view-details">View Details</button>
+      <a class="whatsapp-inquiry" href="https://wa.me/7559445660?text=I'm%20interested%20in%20the%20Vitamin%20D%20test." target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Inquiry via WhatsApp
+  </a>
+   </div>
+ </div>
+ 
+
+
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Body Checkup</div>
+        <div class="test-slider">
+            <div class="test-card" onclick="openModal('BharatFit Pro', 'BSF, cholesterol, triglycerides, sgot, sgpt, sgot/sgpt ratio, urea,BUN, creatine, BUN/creatinine ratio, TSH')">
+                <div class="test-header">BharatFit Pro (redcliffe labs)</div>
+                <div class="test-info">
+                    <span><del>₹1650</del> <b>₹549</b> (66% Off)</span>
+                    <span>Reports in 24 hours</span>
+                </div>
+                <div class="button-container">
+                    <button class="view-details">View Details</button>
+                      <a class="whatsapp-inquiry" href="https://wa.me/7559445660?text=I'm%20interested%20in%20the%20BharatFit Pro%20test." target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Inquiry via WhatsApp
+  </a>
+                </div>
+            </div>
+            <div class="test-card" onclick="openModal('BharatFit -1 (37 parameters)(redcliffe labs)', 'Blood sugar fasting, lipid profile , liver function test, kidney function test, thyroid profile total')">
+                <div class="test-header">BharatFit -1 (37 parameters)</div>
+                <div class="test-info">
+                    <span><del>₹1678</del> <b>₹849</b> (50% Off)</span>
+                    <span>Reports in 24 hours</span>
+                </div>
+                <div class="button-container">
+                    <button class="view-details">View Details</button>
+               <a class="whatsapp-inquiry" href="https://wa.me/7559445660?text=I'm%20interested%20in%20the%20BharatFit-1%20test." target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Inquiry via WhatsApp
+  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="detailsModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <p id="modalText"></p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.test-slider').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                infinite: true,
+                adaptiveHeight: true
+            });
+        });
+        function openModal(title, text) {
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalText").innerText = text;
+            document.getElementById("detailsModal").style.display = "block";
+        }
+        function
+ closeModal() {
+            document.getElementById("detailsModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
+
+    <!-- About us Section -->
+     
+        <div class="service-card1">
+    <h3>Why Choose Us?</h3>
+    <div class="service-items1">
+        <!-- Affordable & Convenient Home Visit -->
+        <div class="service-item1">
+            <span class="icon"><i class="fa fa-home"></i></span>
+            <p><strong>Affordable & Convenient</strong> home visit services.</p>
+        </div>
+        
+        <!-- Trusted Labs -->
+        <div class="service-item1">
+            <span class="icon"><i class="fa fa-flask"></i></span>
+            <p>Results from <strong>trusted labs</strong> like Thyrocare & Redcliffe Labs.</p>
+        </div>
+
+        <!-- Safe Blood Tests -->
+        <div class="service-item1">
+            <span class="icon"><i class="fa fa-shield-alt"></i></span>
+            <p><strong>Safe</strong> blood tests by trained phlebotomists following strict protocols.</p>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </section>
+<section class="services" id="services">
+  <div class="container">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-home"></i>
+        <h3>Blood Test at Home</h3>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-rupee-sign"></i>
+        <h3>Affordable Prices</h3>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-user-md"></i>
+        <h3>Qualified Phlebotomist</h3>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-heartbeat"></i>
+        <h3>Full Body Checkup</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!--Body Check up -->
+<section class="checkup-packages" id="package">
+  <h2>Our Full Body Checkup Packages</h2>
+  <div class="packages-container-wrapper">
+    <div class="packages-container">
+      <div class="package-card">
+        <img src="Asset/image/Arogyam1.png" alt="Package 1">
+        <h3>Arogyam 1.1 With Utsh</h3>
+        <p class="description">This package evaluates 22 Toxic and Nutrient Elements in addition to all other tetss for vital body organs.</p>
+        <div class="pricing">
+          <span class="price">₹1599</span>
+          <span class="offer-price">₹1399</span>
+        </div>
+                <a href="arogyam 1.1.html?package=TORCH_ALL_TEN" class="details-btn">Details</a>
+        <a href="https://wa.me/7559445660?text=I%20am%20interested%20in%20the%20Arigyam 1.1%20CWith%20UTSH!" target="_blank" class="whatsapp-link">Book on Whatsapp</a>
+      </div>
+
+      <div class="package-card">
+        <img src="Asset/image/Arogyam C.png" alt="Package 2">
+        <h3>AAROGYAM C PRO WITH UTSH</h3>
+        <p class="description">Aarogyam C Pro with UTSH is our best-selling health checkup package containing 72 parameters. </p>
+        <div class="pricing">
+          <span class="price">₹2500</span>
+          <span class="offer-price">₹2299</span>
+        </div>
+        <a href="arogyam c pro.html?package=TORCH_ALL_TEN" class="details-btn">Details</a>
+        <a href="https://wa.me/7559445660?text=I%20am%20interested%20in%20the%20AAROGYAM C PRO WITH UTSH%20Checkup%20package!" target="_blank" class="whatsapp-link">Book on WhatsApp</a>
+      </div>
+
+      <div class="package-card">
+        <img src="Asset/image/pcod.png" alt="Package 3">
+        <h3>JAANCH - PCOD (MINI)</h3>
+        <p class="description">Hormonal imbalance is becoming increasingly common nowadays and it can lead to irregular menstrual cycles, cyst formation, infertility, hair and skin problems, diabetes and much more. </p>
+        <div class="pricing">
+          <span class="price">₹1999</span>
+          <span class="offer-price">₹1699</span>
+        </div>
+        <a href="Pcod mini.html?package=TORCH_ALL_TEN" class="details-btn">Details</a>
+        <a href="https://wa.me/7559445660?text=I%20am%20interested%20in%20the%20JAANCH - PCOD (MINI)%20package!" target="_blank" class="whatsapp-link">Book on WhatsApp</a>
+      </div>
+      
+       <div class="package-card">
+        <img src="Asset/image/Torchten.png" alt="Package 3">
+        <h3>TORCH ALL TEN</h3>
+        <p class="description">It is a complete test panel used for preliminary screening of TORCH infections mostly recommended in pregnant women.</p>
+        <div class="pricing">
+          <span class="price">₹2640</span>
+          <span class="offer-price">₹2249</span>
+        </div>
+        <a href="torch ten.html?package=TORCH_ALL_TEN" class="details-btn">Details</a>
+        <a href="https://wa.me/7559445660?text=I%20am%20interested%20in%20the% taurch%20TEN%20package!" target="_blank" class="whatsapp-link">Book on WhatsApp</a>
+      </div>
+      
+       <div class="package-card">
+        <img src="Asset/image/skin.png" alt="Package 3">
+        <h3>JAANCH - WOMENS SKIN CARE CHECKUP</h3>
+        <p class="description">It is a complete test panel used for preliminary screening of TORCH infections mostly recommended in pregnant women.</p>
+        <div class="pricing">
+          <span class="price">₹2999</span>
+          <span class="offer-price">₹2599</span>
+        </div>
+        <a href="skin female.html?package=TORCH_ALL_TEN" class="details-btn">Details</a>
+        <a href="https://wa.me/7559445660?text=I%20am%20interested%20in%20the% JAANCH - WOMENS SKIN CARE CHECKUP%20package!" target="_blank" class="whatsapp-link">Book on WhatsApp</a>
+      </div>
+      
+      <!-- Add more package cards here as needed -->
+    </div>
+    <div class="scroll-indicator-left"></div>
+    <div class="scroll-indicator-right"></div>
+  </div>
+  </section>
+
+<!-- Testimonial Section -->
+<section class="testimonial-section">
+  <h2 class="testimonial-heading">What Our Customers Say</h2>
+
+  <div class="testimonial-container">
+    <div class="testimonial-card">
+      <!-- Avatar Image 1 -->
+      <img src="https://via.placeholder.com/80" alt="Person 1"  class="testimonial-image">
+      <p class="quote">"The lab technician take blood from your door step.Lab technician is good in nature. easy blood collection aim to take minimal charges as compared to other laboratory they also provide accurate report. fully recommended by my side "</p>
+      <p class="author">- Amique Shekh</p>
+      <div class="rating">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <!-- Avatar Image 2 -->
+      <img src="https://via.placeholder.com/80" alt="Person 2"  class="testimonial-image">
+      <p class="quote">"Tried a home visit blood test, and it was superconvenient. the phlebotomist was professional, and it was nice avoiding a clinic trip.w while its pricier your and scheduling to longer the comfort and privacy were worth it.Great option if you are looking for convenience!."</p>
+      <p class="author">- Aniket Dhakane</p>
+      <div class="rating">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span> <!-- Empty star for rating -->
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <!-- Avatar Image 3 -->
+      <img src="https://via.placeholder.com/80" alt="Person 3" class="testimonial-image">
+      <p class="quote">"very polite person and on time service provided."</p>
+      <p class="author"> Kiran Waghmare</p>
+      <div class="rating">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span> <!-- Empty star for rating -->
+        <span class="star">&#9733;</span> <!-- Empty star for rating -->
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <!-- Avatar Image 4 -->
+      <img src="https://via.placeholder.com/80"  alt="Person 4" class="testimonial-image">
+      <p class="quote">"Very good home service and technician is also good in nature."</p>
+      <p class="author">Sujit Waghmare</p>
+      <div class="rating">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span> <!-- Full star for 5-star rating -->
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Contact Us Section -->
+    <section class="contact-us-section" id="contact">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+          <input type="hidden" name="access_key" value="666f027f-5129-48c3-a5bc-b762ab182998">
+
+          <!-- Full Name Field -->
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+
+          <!-- Email Address Field -->
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+
+          <!-- Mobile Number Field -->
+          <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
+          </div>
+
+          <!-- Message Field -->
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your message..." rows="4" required></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+    <!-- Contact info -->
+  <!-- Add Font Awesome CDN link in the head section of your HTML -->
+
+
+<div class="contact-info">
+  <h2>Get In Touch With Us Now!</h2>
+  <div class="contact-item">
+    <i class="fas fa-phone"></i>
+    <p>+91 755 944 5660</p>
+  </div>
+  <div class="contact-item">
+    <i class="fas fa-envelope"></i>
+    <p>easyblood60@gmail.com</p>
+    
+  </div>
+  <div class="contact-item">
+    <i class="fas fa-map-marker-alt"></i>
+    <p>Easy Blood Collection Centre , Shop no 1 , Afreen Apartment,Salamat Pura, Naigaon 2, Bhiwandi , Maharashtra - 421302</p>
+  </div>
+  <div class="contact-item">
+    <i class="fas fa-clock"></i>
+    <p>Monday To Sunday</p>
+    <p>07:00 AM To 11:00 PM</p>
+  </div>
+</div>
+    <hr>
+  <!--FAQ section -->
+  <section class="faq-section">
+    <div class="container">
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <button id="lang-en" class="lang-btn active">English</button>
+            <button id="lang-es" class="lang-btn">हिन्दी</button>
+        </div>
+
+        <h2 class="faq-title" id="faqs">Frequently Asked Questions</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-question-text" data-en="What is Easy Blood?" data-es="ईजी ब्लड क्या है?">What is Easy Blood?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="answer-text" data-en="Easy Blood is an innovative collection center that offers home blood testing services. They ensure safety and precautions while collecting your blood sample and submit it to reputable labs like Thyrocare and Redcliffe Labs. You receive your report via WhatsApp or as a printed copy." 
+                       data-es="ईजी ब्लड एक नवीन कलेक्शन सेंटर है जो घर पर रक्त परीक्षण की सेवाएं प्रदान करता है। वे रक्त नमूने को सुरक्षित तरीके से एकत्रित करते हैं और उसे Thyrocare और Redcliffe Labs जैसे प्रतिष्ठित लैब में जमा करते हैं। आपकी रिपोर्ट आपको व्हाट्सएप या मुद्रित प्रतिलिपि के रूप में प्राप्त होती है।.">
+                       Easy Blood is an innovative collection center that offers home blood testing services. They ensure safety and precautions while collecting your blood sample and submit it to reputable labs like Thyrocare and Redcliffe Labs. You receive your report via WhatsApp or as a printed copy.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-question-text" data-en="Is this report accurate?" data-es="क्या यह रिपोर्ट सटीक है?">Is this report accurate?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="answer-text" data-en="Yes, this report is accurate and is NABL and ISO certified."
+                       data-es="हाँ, यह रिपोर्ट सटीक है और NABL और ISO प्रमाणित है।">
+                       Yes, This report is accurate and is NABL and ISO certified
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-question-text" data-en="Can every doctor accept your report?" data-es="क्या हर डॉक्टर आपकी रिपोर्ट को स्वीकार करता है?">Can every doctor accept your report?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="answer-text" data-en="Yes, the report is accurate, reliable, and accepted by doctors across India because it is NABL and ISO certified and processed by Thyrocare and Redcliffe Labs."
+                       data-es="हाँ, रिपोर्ट सटीक, विश्वसनीय और पूरे भारत में डॉक्टरों द्वारा स्वीकार की जाती है क्योंकि यह NABL और ISO प्रमाणित है और Thyrocare और Redcliffe Labs द्वारा प्रोसेस की जाती है।.">
+                       Yes, the report is accurate, reliable, and accepted by doctors across India because it is NABL and ISO certified and processed by Thyrocare and Redcliffe Labs.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-question-text" data-en="Does Easy Blood offer discounts on tests?" data-es="क्या ईजी ब्लड परीक्षणों पर छूट देता है?">Does Easy Blood offer discounts on tests? ?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="answer-text" data-en="Yes, Easy Blood provides possible discounts on tests." 
+                       data-es="हाँ, ईजी ब्लड परीक्षणों पर संभव छूट प्रदान करता है।.">
+                       Yes, Easy Blood provides possible discounts on tests.
+                    </p>
+                </div>
+            </div>
+                  <div class="faq-item">
+                <button class="faq-question">
+                    <span class="faq-question-text" data-en="Does Easy Blood process the blood samples?" data-es="क्या ईजी ब्लड रक्त नमूनों की खुद ही प्रोसेसिंग करता है?">Does Easy Blood process the blood samples themselves?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="answer-text" data-en="No, Easy Blood Does not process your blood Sample Themselves, Healthy Blood safely submits your blood sample to reputable labs like Thyrocare and Redcliffe Labs to Ensure your Report is accurate.."
+                       data-es="नहीं, ईजी  ब्लड स्वयं आपके रक्त नमूने की प्रोसेसिंग नहीं करता। हेल्थी  ब्लड आपके रक्त नमूने को सुरक्षित रूप से Thyrocare और Redcliffe Labs जैसी प्रतिष्ठित लैब में जमा करता है ताकि यह सुनिश्चित किया जा सके कि आपकी रिपोर्ट सटीक हो।।">
+                       No, EASY Blood Does not process your blood Sample Themselves, EASY BLOOD safely submits your blood sample to reputable labs like Thyrocare and Redcliffe Labs to Ensure your Report is accurate.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--icon on footer
+
+    <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/7559445660" class="whatsapp-float" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icone">
+</a>
+
+    <!-- Footer -->
+
+    <style>
+        footer {
+            background-color: #f8f9fa; /* Light Gray Background */
+            color: #495057; /* Dark Gray Text */
+            padding: 40px 20px;
+            box-sizing: border-box;
+            font-family: sans-serif; /* Modern, clean font */
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .footer-section {
+            flex: 1 1 250px; /* Adjust flex basis as needed */
+            margin-bottom: 30px;
+        }
+        .footer-section p {
+          font-size: 1rem;
+          text-align: left
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px; /* Reduced margin */
+            border-bottom: 1px solid #dee2e6; /* Light Gray Separator */
+            padding-bottom: 5px;
+            color: #343a40; /* Slightly darker heading */
+            font-weight: 500; /* Semi-bold heading */
+        }
+
+        .footer-section a {
+            color: #6c757d; /* Medium Gray Link Color */
+            text-decoration: none;
+            transition: color 0.2s ease-in-out; /* Smooth transition */
+        }
+
+        .footer-section a:hover {
+            color: #343a40; /* Darker Gray on Hover */
+        }
+
+        .contact-info p {
+            margin-bottom: 8px; /* Reduced margin */
+            line-height: 1.9; /* Improved readability */
+           
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+
+
+        @media (max-width: 768px) {
+            .footer-section {
+                flex: 1 1 100%; /* Full width on smaller screens */
+                text-align: center;
+            }
+
+            .footer-section ul {
+                text-align: center;
+            }
+        }
+    </style>
+
+  
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+              <p>Welcome to <strong>EASY BLOOD Collection Center</strong>  your trusted partner for home visit blood tests. We offer affordable, reliable, and accurate results in partnership with reputable labs: <strong>Thyrocare</strong> and <strong>Redcliffe Labs</strong> and <strong>K.K Labs (Bhiwandi Based lab)</strong>.we currently serve <strong>Bhiwandi</strong>, <strong>Kalyan</strong> and surrounding areas, as well as parts of <strong>Mumbai</strong>. Choose EASY BLOOD Collection Center for a hassle-free, safe, and reliable blood test.</p>
+            </div>
+           
+            <div class="footer-section contact-info">
+                <h3>Contact Us</h3>
+                <p>Email: easyblood60@gmail.com</p>
+                <p><a href="tel:+917559445660">Phone: +91 755 944 5660</a></p>
+                <p>Addres: Easy Blood Collection Centre , Shop no 1 , Afreen Apartment,Salamat Pura, Naigaon 2, Bhiwandi , Maharashtra - 421302</p>
+            </div>
+            <h1>This is my Google Maps Location</h1>
+
+        </div>
+        <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=435&amp;height=454&amp;hl=en&amp;q=Easy blood  a home visit bhiwandi &amp;t=h&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://sprunkin.com/">Sprunki Game</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:454px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:454px;}.gmap_iframe {height:454px!important;}</style></div>
+        <div class="copyright">
+            © 2024 Easy Blood. All rights reserved.
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

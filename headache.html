@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headache Information</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f4f7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: #00695c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            flex-shrink: 0;
+        }
+
+        .content {
+            padding: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+        }
+
+        select {
+            padding: 12px 20px;
+            margin: 20px 0;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #fff;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        select:focus {
+            border-color: #00695c;
+            box-shadow: 0 0 5px rgba(0, 105, 92, 0.7);
+        }
+
+        h2, h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        footer {
+            background: #c62828;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        .go-back {
+            display: block;
+            width: 220px;
+            margin: 2rem auto;
+            padding: 15px;
+            background: linear-gradient(45deg, #007bff, #00bcd4);
+            color: white;
+            text-align: center;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .go-back:hover {
+            background: linear-gradient(45deg, #00bcd4, #007bff);
+            transform: translateY(-3px);
+        }
+
+        .go-back:active {
+            transform: translateY(1px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header id="header-title">Headache Information</header>
+
+    <a href="/Healthy blood/vlog.html" class="go-back">Go to Back Page</a>
+
+    <div class="content">
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="ur">Urdu</option>
+        </select>
+
+        <h2 id="section-title">What is a Headache?</h2>
+        <p id="section-text">A headache is pain or discomfort in the head or face area, which can be caused by a variety of factors like tension, stress, or an underlying medical condition.</p>
+
+        <h3 id="symptoms-title">Symptoms of a Headache</h3>
+        <ul id="symptoms-list">
+            <li>Pain in the head, scalp, or neck</li>
+            <li>Throbbing or pulsing pain</li>
+            <li>Sensitivity to light, noise, or smells</li>
+            <li>Nausea or vomiting (in some cases)</li>
+        </ul>
+
+        <h3 id="causes-title">Causes of a Headache</h3>
+        <ul id="causes-list">
+            <li>Tension headaches (stress or anxiety)</li>
+            <li>Migraines</li>
+            <li>Cluster headaches</li>
+            <li>Sinus headaches</li>
+            <li>Underlying conditions like dehydration, eye strain, or infections</li>
+        </ul>
+
+        <h3 id="diagnosis-title">Diagnosis of a Headache</h3>
+        <p id="diagnosis-text">A healthcare provider can diagnose a headache based on medical history, physical examination, and, in some cases, imaging tests or blood tests.</p>
+
+        <h3 id="treatment-title">Management and Treatment</h3>
+        <ul id="treatment-list">
+            <li>Over-the-counter pain relievers like ibuprofen, acetaminophen, or aspirin</li>
+            <li>Prescription medications (for chronic or severe headaches)</li>
+            <li>Physical therapy or massage for tension headaches</li>
+            <li>Alternative treatments like acupuncture or biofeedback</li>
+        </ul>
+
+        <h3 id="home-remedies-title">Home Remedies for Headache</h3>
+        <ul id="home-remedies-list">
+            <li>Applying a cold or warm compress to the forehead or neck</li>
+            <li>Drinking plenty of water to stay hydrated</li>
+            <li>Taking a break in a dark, quiet room</li>
+            <li>Practicing relaxation techniques like deep breathing or meditation</li>
+        </ul>
+    </div>
+
+    <footer id="footer-text">This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment.</footer>
+
+    <script>
+        const languageData = {
+            en: {
+                headerTitle: "Headache Information",
+                sectionTitle: "What is a Headache?",
+                sectionText: "A headache is pain or discomfort in the head or face area, which can be caused by a variety of factors like tension, stress, or an underlying medical condition.",
+                symptomsTitle: "Symptoms of a Headache",
+                symptomsList: [
+                    "Pain in the head, scalp, or neck",
+                    "Throbbing or pulsing pain",
+                    "Sensitivity to light, noise, or smells",
+                    "Nausea or vomiting (in some cases)"
+                ],
+                causesTitle: "Causes of a Headache",
+                causesList: [
+                    "Tension headaches (stress or anxiety)",
+                    "Migraines",
+                    "Cluster headaches",
+                    "Sinus headaches",
+                    "Underlying conditions like dehydration, eye strain, or infections"
+                ],
+                diagnosisTitle: "Diagnosis of a Headache",
+                diagnosisText: "A healthcare provider can diagnose a headache based on medical history, physical examination, and, in some cases, imaging tests or blood tests.",
+                treatmentTitle: "Management and Treatment",
+                treatmentList: [
+                    "Over-the-counter pain relievers like ibuprofen, acetaminophen, or aspirin",
+                    "Prescription medications (for chronic or severe headaches)",
+                    "Physical therapy or massage for tension headaches",
+                    "Alternative treatments like acupuncture or biofeedback"
+                ],
+                homeRemediesTitle: "Home Remedies for Headache",
+                homeRemediesList: [
+                    "Applying a cold or warm compress to the forehead or neck",
+                    "Drinking plenty of water to stay hydrated",
+                    "Taking a break in a dark, quiet room",
+                    "Practicing relaxation techniques like deep breathing or meditation"
+                ],
+                footerText: "This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment."
+            },
+            hi: {
+                headerTitle: "सिर दर्द की जानकारी",
+                sectionTitle: "सिर दर्द क्या है?",
+                sectionText: "सिर दर्द सिर या चेहरे के क्षेत्र में होने वाला दर्द या असुविधा है, जो तनाव, चिंता या किसी अन्य शारीरिक समस्या के कारण हो सकता है।",
+                symptomsTitle: "सिर दर्द के लक्षण",
+                symptomsList: [
+                    "सिर, खोपड़ी, या गले में दर्द",
+                    "धड़कता हुआ या धड़कते हुए दर्द",
+                    "प्रकाश, शोर या गंध के प्रति संवेदनशीलता",
+                    "मतली या उलटी (कुछ मामलों में)"
+                ],
+                causesTitle: "सिर दर्द के कारण",
+                causesList: [
+                    "तनाव सिर दर्द (तनाव या चिंता)",
+                    "माइग्रेन",
+                    "क्लस्टर सिर दर्द",
+                    "साइनस सिर दर्द",
+                    "निम्नलिखित स्थितियां जैसे कि निर्जलीकरण, आंखों का तनाव, या संक्रमण"
+                ],
+                diagnosisTitle: "सिर दर्द का निदान",
+                diagnosisText: "एक स्वास्थ्य प्रदाता सिर दर्द का निदान चिकित्सा इतिहास, शारीरिक परीक्षा, और कुछ मामलों में, इमेजिंग परीक्षणों या रक्त परीक्षणों के आधार पर कर सकता है।",
+                treatmentTitle: "प्रबंधन और उपचार",
+                treatmentList: [
+                    "ओवर-द-काउंटर दर्द निवारक दवाएं जैसे इबुप्रोफेन, एसिटामिनोफेन, या ऐस्पिरिन",
+                    "पर्चे की दवाएं (क्रॉनिक या गंभीर सिर दर्द के लिए)",
+                    "तनाव सिर दर्द के लिए शारीरिक चिकित्सा या मालिश",
+                    "वैकल्पिक उपचार जैसे एक्यूपंचर या बायोफीडबैक"
+                ],
+                homeRemediesTitle: "सिर दर्द के घरेलू उपचार",
+                homeRemediesList: [
+                    "माथे या गले पर ठंडी या गर्म सिकाई लगाना",
+                    "हाइड्रेटेड रहने के लिए खूब पानी पीना",
+                    "अंधेरे और शांत कमरे में आराम करना",
+                    "गहरी सांस लेने या ध्यान करने जैसी विश्राम तकनीकों का अभ्यास करना"
+                ],
+                footerText: "यह जानकारी केवल सामान्य समझ के लिए है। निदान और उपचार के लिए हमेशा एक स्वास्थ्य विशेषज्ञ से परामर्श करें।"
+            },
+            ur: {
+                headerTitle: "سر درد کی معلومات",
+                sectionTitle: "سر درد کیا ہے؟",
+                sectionText: "سر درد سر یا چہرے کے علاقے میں درد یا تکلیف ہوتی ہے، جو مختلف وجوہات جیسے تناؤ، ذہنی دباؤ، یا کسی بنیادی طبی حالت کی وجہ سے ہو سکتا ہے۔",
+                symptomsTitle: "سر درد کی علامات",
+                symptomsList: [
+                    "سر، کھوپڑی، یا گردن میں درد",
+                    "دھڑکتا ہوا یا دھڑکنے والا درد",
+                    "روشنی، شور، یا خوشبو کے لیے حساسیت",
+                    "متلی یا قے (کچھ کیسز میں)"
+                ],
+                causesTitle: "سر درد کے اسباب",
+                causesList: [
+                    "تناؤ سر درد (دباؤ یا اضطراب)",
+                    "مائگرین",
+                    "کلسٹر سر درد",
+                    "سائنوس سر درد",
+                    "پانی کی کمی، آنکھوں کا تناؤ، یا انفیکشن جیسے بنیادی حالات"
+                ],
+                diagnosisTitle: "سر درد کی تشخیص",
+                diagnosisText: "ایک ہیلتھ کیئر فراہم کنندہ طبی تاریخ، جسمانی معائنہ، اور بعض اوقات امیجنگ ٹیسٹ یا خون کے ٹیسٹ کی بنیاد پر سر درد کی تشخیص کر سکتا ہے۔",
+                treatmentTitle: "انتظامیہ اور علاج",
+                treatmentList: [
+                    "اوور-دی-کاؤنٹر درد کم کرنے والی دوائیں جیسے آئیبوپروفین، ایسٹامائنوفین، یا ایسپرین",
+                    "نسخے کی دوائیں (دائمی یا شدید سر درد کے لیے)",
+                    "تناؤ سر درد کے لیے جسمانی علاج یا مالش",
+                    "متبادل علاج جیسے ایکیوپنکچر یا بایوفیڈبیک"
+                ],
+                homeRemediesTitle: "سر درد کے گھریلو علاج",
+                homeRemediesList: [
+                    "ماتھے یا گردن پر ٹھنڈی یا گرم کمپریس لگانا",
+                    "ہائیڈریٹ رہنے کے لیے کافی پانی پینا",
+                    "ایک تاریک، پرسکون کمرے میں آرام کرنا",
+                    "گہری سانس لینے یا مراقبہ کرنے جیسی آرام دہ تکنیکیں اپنانا"
+                ],
+                footerText: "یہ معلومات صرف عمومی فہمی کے لیے ہے۔ تشخیص اور علاج کے لیے ہمیشہ ایک ماہر صحت سے مشورہ کریں۔"
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById("language-select").value;
+            const data = languageData[lang];
+
+            document.getElementById("header-title").textContent = data.headerTitle;
+            document.getElementById("section-title").textContent = data.sectionTitle;
+            document.getElementById("section-text").textContent = data.sectionText;
+            document.getElementById("symptoms-title").textContent = data.symptomsTitle;
+            document.getElementById("causes-title").textContent = data.causesTitle;
+            document.getElementById("diagnosis-title").textContent = data.diagnosisTitle;
+            document.getElementById("diagnosis-text").textContent = data.diagnosisText;
+            document.getElementById("treatment-title").textContent = data.treatmentTitle;
+            document.getElementById("home-remedies-title").textContent = data.homeRemediesTitle;
+            document.getElementById("footer-text").textContent = data.footerText;
+
+            updateList("symptoms-list", data.symptomsList);
+            updateList("causes-list", data.causesList);
+            updateList("treatment-list", data.treatmentList);
+            updateList("home-remedies-list", data.homeRemediesList);
+        }
+
+        function updateList(id, items) {
+            const list = document.getElementById(id);
+            list.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toothache Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7fc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: #00796b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .content {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+        }
+        select {
+            padding: 8px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 8px 0;
+        }
+        footer {
+            background: red;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header-title">Toothache Information</header>
+<div onclick="location.assign('/Healthy blood/vlog.html')" style="display:block;width:200px;margin:2rem auto;padding:1rem;background:linear-gradient(45deg,#007bff,#00bcd4);color:white;text-align:center;font-size:1.2rem;border-radius:30px;text-decoration:none;box-shadow:0 5px 10px rgba(0,0,0,.1);transition:all .3s ease;">Go to back page</div>
+
+
+    <div class="content">
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="ur">Urdu</option>
+        </select>
+
+        <h2 id="section-title">What is Toothache?</h2>
+        <p id="section-text">A toothache is pain around the teeth and jaws that can be caused by a variety of dental problems such as tooth decay, gum disease, or an infection.</p>
+
+        <h3 id="symptoms-title">Symptoms of Toothache</h3>
+        <ul id="symptoms-list">
+            <li>Sharp or throbbing pain in the tooth</li>
+            <li>Pain when chewing or touching the tooth</li>
+            <li>Swollen gums around the affected tooth</li>
+            <li>Bad breath or unpleasant taste in the mouth</li>
+            <li>Fever or headache (in some cases)</li>
+        </ul>
+
+        <h3 id="causes-title">Causes of Toothache</h3>
+        <ul id="causes-list">
+            <li>Tooth decay or cavities</li>
+            <li>Gum disease (gingivitis or periodontitis)</li>
+            <li>Tooth abscess or infection</li>
+            <li>Cracked or broken tooth</li>
+            <li>Exposed tooth roots</li>
+        </ul>
+
+        <h3 id="diagnosis-title">Diagnosis of Toothache</h3>
+        <p id="diagnosis-text">A dentist typically diagnoses the cause of toothache by performing a physical examination, checking X-rays, and evaluating the patient’s symptoms.</p>
+
+        <h3 id="treatment-title">Management and Treatment</h3>
+        <ul id="treatment-list">
+            <li>Over-the-counter pain relievers like ibuprofen or acetaminophen</li>
+            <li>Antibiotics (if there’s an infection)</li>
+            <li>Dental procedures like fillings, root canals, or extractions</li>
+            <li>Home remedies like salt water rinses or cold compress</li>
+        </ul>
+
+        <h3 id="home-remedies-title">Home Remedies for Toothache</h3>
+        <ul id="home-remedies-list">
+            <li>Salt water rinse to reduce inflammation</li>
+            <li>Applying a cold compress to the cheek near the affected tooth</li>
+            <li>Clove oil or garlic paste to numb the pain</li>
+            <li>Drinking warm tea with chamomile to soothe the pain</li>
+        </ul>
+    </div>
+
+    <footer id="footer-text">This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment.</footer>
+
+    <script>
+        const languageData = {
+            en: {
+                headerTitle: "Toothache Information",
+                sectionTitle: "What is Toothache?",
+                sectionText: "A toothache is pain around the teeth and jaws that can be caused by a variety of dental problems such as tooth decay, gum disease, or an infection.",
+                symptomsTitle: "Symptoms of Toothache",
+                symptomsList: [
+                    "Sharp or throbbing pain in the tooth",
+                    "Pain when chewing or touching the tooth",
+                    "Swollen gums around the affected tooth",
+                    "Bad breath or unpleasant taste in the mouth",
+                    "Fever or headache (in some cases)"
+                ],
+                causesTitle: "Causes of Toothache",
+                causesList: [
+                    "Tooth decay or cavities",
+                    "Gum disease (gingivitis or periodontitis)",
+                    "Tooth abscess or infection",
+                    "Cracked or broken tooth",
+                    "Exposed tooth roots"
+                ],
+                diagnosisTitle: "Diagnosis of Toothache",
+                diagnosisText: "A dentist typically diagnoses the cause of toothache by performing a physical examination, checking X-rays, and evaluating the patient’s symptoms.",
+                treatmentTitle: "Management and Treatment",
+                treatmentList: [
+                    "Over-the-counter pain relievers like ibuprofen or acetaminophen",
+                    "Antibiotics (if there’s an infection)",
+                    "Dental procedures like fillings, root canals, or extractions",
+                    "Home remedies like salt water rinses or cold compress"
+                ],
+                homeRemediesTitle: "Home Remedies for Toothache",
+                homeRemediesList: [
+                    "Salt water rinse to reduce inflammation",
+                    "Applying a cold compress to the cheek near the affected tooth",
+                    "Clove oil or garlic paste to numb the pain",
+                    "Drinking warm tea with chamomile to soothe the pain"
+                ],
+                footerText: "This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment."
+            },
+            hi: {
+                headerTitle: "दांत के दर्द की जानकारी",
+                sectionTitle: "दांत के दर्द क्या है?",
+                sectionText: "दांत का दर्द दांतों और जबड़ों के आसपास दर्द होता है, जो दांत सड़न, मसूड़े की बीमारी या संक्रमण जैसी विभिन्न दंत समस्याओं के कारण हो सकता है।",
+                symptomsTitle: "दांत के दर्द के लक्षण",
+                symptomsList: [
+                    "दांत में तीव्र या धड़कने वाला दर्द",
+                    "खाने या दांत को छूने पर दर्द",
+                    "प्रभावित दांत के आसपास सूजे हुए मसूड़े",
+                    "मुंह में बदबू या अप्रिय स्वाद",
+                    "बुखार या सिरदर्द (कुछ मामलों में)"
+                ],
+                causesTitle: "दांत के दर्द के कारण",
+                causesList: [
+                    "दांत सड़न या कैविटी",
+                    "मसूड़े की बीमारी (जिंजिवाइटिस या पीरियोडोंटाइटिस)",
+                    "दांत का फोड़ा या संक्रमण",
+                    "टूटे या दरार वाले दांत",
+                    "दांत की जड़ का बाहर होना"
+                ],
+                diagnosisTitle: "दांत के दर्द की निदान",
+                diagnosisText: "दंत चिकित्सक आमतौर पर शारीरिक परीक्षा, एक्स-रे जांच और रोगी के लक्षणों का मूल्यांकन करके दांत के दर्द का कारण निदान करते हैं।",
+                treatmentTitle: "प्रबंधन और उपचार",
+                treatmentList: [
+                    "इबुप्रोफेन या एसिटामिनोफेन जैसे ओवर-द-काउंटर दर्द निवारक",
+                    "एंटीबायोटिक्स (यदि संक्रमण हो)",
+                    "दंत प्रक्रियाएं जैसे कि फिलिंग, रूट कैनाल या एक्सट्रैक्शन",
+                    "गर्म पानी से कुल्ला या ठंडी पट्टी जैसे घरेलू उपचार"
+                ],
+                homeRemediesTitle: "दांत के दर्द के घरेलू उपचार",
+                homeRemediesList: [
+                    "सूजन कम करने के लिए नमक पानी से कुल्ला करें",
+                    "प्रभावित दांत के पास गाल पर ठंडी पट्टी लगाएं",
+                    "दर्द को सुन्न करने के लिए लौंग का तेल या लहसुन का पेस्ट लगाएं",
+                    "दर्द को शांत करने के लिए कैमोमाइल चाय पिएं"
+                ],
+                footerText: "यह जानकारी केवल सामान्य समझ के लिए है। निदान और उपचार के लिए हमेशा एक स्वास्थ्य विशेषज्ञ से परामर्श करें।"
+            },
+            ur: {
+                headerTitle: "دانت کے درد کی معلومات",
+                sectionTitle: "دانت کے درد کیا ہے؟",
+                sectionText: "دانت کا درد دانتوں اور جبڑوں کے ارد گرد درد ہوتا ہے جو مختلف دانتوں کی بیماریوں جیسے دانت کی سڑن، مسوڑھوں کی بیماری، یا انفیکشن کی وجہ سے ہو سکتا ہے۔",
+                symptomsTitle: "دانت کے درد کی علامات",
+                symptomsList: [
+                    "دانت میں تیز یا دھڑکنے والا درد",
+                    "دانت چبانے یا چھونے پر درد",
+                    "متاثرہ دانت کے ارد گرد سوجے ہوئے مسوڑھے",
+                    "منہ میں بدبو یا ناپسندیدہ ذائقہ",
+                    "بخار یا سر درد (کچھ صورتوں میں)"
+                ],
+                causesTitle: "دانت کے درد کے اسباب",
+                causesList: [
+                    "دانت کی سڑن یا کیویٹیز",
+                    "مسوڑھوں کی بیماری (جینجی وٹائٹس یا پیریڈنٹائٹس)",
+                    "دانت کا ابسیس یا انفیکشن",
+                    "ٹوٹا ہوا یا دراڑ والا دانت",
+                    "دانت کی جڑ کا باہر آنا"
+                ],
+                diagnosisTitle: "دانت کے درد کی تشخیص",
+                diagnosisText: "دانتوں کے ڈاکٹر عام طور پر جسمانی معائنہ، ایکسرے اور مریض کی علامات کا جائزہ لے کر دانت کے درد کی وجہ کی تشخیص کرتے ہیں۔",
+                treatmentTitle: "انتظامیہ اور علاج",
+                treatmentList: [
+                    "اوور-دی-کاؤنٹر درد کو کم کرنے والی دوا جیسے آئیبوپروفین یا ایسٹامائنوفین",
+                    "اینٹی بایوٹکس (اگر انفیکشن ہو)",
+                    "دانتوں کے علاج جیسے فلنگز، روٹ کینال یا ایکسٹریکشن",
+                    "گھر کے علاج جیسے نمک پانی سے کلی یا سرد کمپریس"
+                ],
+                homeRemediesTitle: "دانت کے درد کے گھریلو علاج",
+                homeRemediesList: [
+                    "سوجن کو کم کرنے کے لیے نمک پانی سے کلی کریں",
+                    "متاثرہ دانت کے قریب گال پر سرد کمپریس لگائیں",
+                    "درد کو سن کرنے کے لیے لونگ کا تیل یا لہسن کا پیسٹ لگائیں",
+                    "درد کو سکون دینے کے لیے کیمومائل چائے پئیں"
+                ],
+                footerText: "یہ معلومات صرف عمومی فہمی کے لیے ہے۔ تشخیص اور علاج کے لیے ہمیشہ ایک ماہر صحت سے مشورہ کریں۔"
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById("language-select").value;
+            const data = languageData[lang];
+
+            document.getElementById("header-title").textContent = data.headerTitle;
+            document.getElementById("section-title").textContent = data.sectionTitle;
+            document.getElementById("section-text").textContent = data.sectionText;
+            document.getElementById("symptoms-title").textContent = data.symptomsTitle;
+            document.getElementById("causes-title").textContent = data.causesTitle;
+            document.getElementById("diagnosis-title").textContent = data.diagnosisTitle;
+            document.getElementById("diagnosis-text").textContent = data.diagnosisText;
+            document.getElementById("treatment-title").textContent = data.treatmentTitle;
+            document.getElementById("home-remedies-title").textContent = data.homeRemediesTitle;
+            document.getElementById("footer-text").textContent = data.footerText;
+
+            updateList("symptoms-list", data.symptomsList);
+            updateList("causes-list", data.causesList);
+            updateList("treatment-list", data.treatmentList);
+            updateList("home-remedies-list", data.homeRemediesList);
+        }
+
+        function updateList(id, items) {
+            const list = document.getElementById(id);
+            list.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+</html>

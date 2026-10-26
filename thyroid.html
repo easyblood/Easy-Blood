@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thyroid Disease Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f7f6;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+header {
+    background-color: #3498db;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.lang-switcher {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.lang-switcher button {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.lang-switcher button:hover {
+    background-color: #34495e;
+}
+
+.warning {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+    margin: 10px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.content {
+    line-height: 1.8;
+    font-size: 1rem;
+    color: #555;
+    transition: opacity 0.3s ease-in-out;
+}
+
+section {
+    padding: 20px;
+    margin: 10px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+img {
+    width: 150px;
+    margin: 20px auto;
+    display: block;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.whatsapp-btn:hover {
+    background-color: #1EBE57;
+}
+
+.whatsapp-btn i {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+/* Animation */
+.hint {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #4ddba0;
+    animation: blink 1s infinite;
+    text-decoration: none;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 600px) {
+    header {
+        font-size: 1.5rem; /* Adjust header font size for mobile */
+        padding: 10px; /* Adjust padding */
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .content {
+        font-size: 0.9rem;
+    }
+
+    .lang-switcher button {
+        padding: 6px 15px; /* Smaller button padding for mobile */
+        font-size: 0.9rem;
+    }
+
+    .whatsapp-btn {
+        font-size: 14px; /* Slightly smaller font size for the button */
+        padding: 8px 16px;
+    }
+
+    img {
+        width: 120px; /* Adjust image size for mobile screens */
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <span id="header-en">Thyroid Disease Information</span>
+    <span id="header-hi" style="display:none;">थायरॉयड रोग जानकारी</span>
+    <span id="header-ur" style="display:none;">تھائیرائیڈ کی بیماری کی معلومات</span>
+</header>
+
+<div class="lang-switcher">
+    <button onclick="changeLanguage('en')">English</button>
+    <button onclick="changeLanguage('hi')">Hindi</button>
+    <button onclick="changeLanguage('ur')">Urdu</button>
+</div>
+
+<div id="warning" class="warning">
+    <span id="warning-en">Warning: This information is for educational purposes only. For diagnosis and treatment, always consult a qualified doctor.</span>
+    <span id="warning-hi" style="display:none;">चेतावनी: यह जानकारी केवल शैक्षिक उद्देश्यों के लिए है। निदान और उपचार के लिए हमेशा एक योग्य डॉक्टर से परामर्श करें।</span>
+    <span id="warning-ur" style="display:none;">خبردار: یہ معلومات صرف تعلیمی مقاصد کے لیے ہیں۔ تشخیص اور علاج کے لیے ہمیشہ ایک مستند ڈاکٹر سے مشورہ کریں۔</span>
+</div>
+
+<section id="disease-definition">
+    <h2><i class="fas fa-book icon"></i> <span id="definition-header-en">What is Thyroid Disease?</span>
+        <span id="definition-header-hi" style="display:none;">थायरॉयड रोग क्या है?</span>
+        <span id="definition-header-ur" style="display:none;">تھائیرائیڈ کی بیماری کیا ہے؟</span>
+    </h2>
+    <div class="content" id="definition-en">
+        Thyroid disease is a medical condition that affects the function of the thyroid gland, a small, butterfly-shaped gland located at the front of the neck. The thyroid gland produces hormones that regulate metabolism, energy levels, and overall body function
+    </div>
+    <div class="content" id="definition-hi" style="display:none;">
+        थायराइड रोग एक चिकित्सा स्थिति है जो थायराइड ग्रंथि के कार्य को प्रभावित करती है, जो गर्दन के सामने स्थित एक छोटी, तितली के आकार की ग्रंथि है। थायराइड ग्रंथि हार्मोन का उत्पादन करती है जो चयापचय, ऊर्जा स्तर और समग्र शरीर के कार्य को नियंत्रित करती है
+    </div>
+    <div class="content" id="definition-ur" style="display:none;">
+       ھائیرائیڈ بیماری ایک طبی حالت ہے جو تھائیرائیڈ غدود کے فعل کو متاثر کرتی ہے، جو گردن کے سامنے واقع ایک چھوٹا، تتلی نما غدود ہے۔ تھائیرائیڈ غدود ہارمونز پیدا کرتا ہے جو میٹابولزم، توانائی کی سطح اور مجموعی جسمانی فعل کو کنٹرول کرتا ہے
+    </div>
+</section>
+
+<section id="causes">
+    <h2><i class="fas fa-cogs icon"></i> <span id="causes-header-en">Causes of Thyroid Disease</span>
+        <span id="causes-header-hi" style="display:none;">थायरॉयड रोग के कारण</span>
+        <span id="causes-header-ur" style="display:none;">تھائیرائیڈ کی بیماری کے اسباب</span>
+    </h2>
+    <div class="content" id="causes-en">
+        Thyroid disease can be caused by various factors, including autoimmune disorders (e.g., Hashimoto's thyroiditis, Graves' disease), iodine deficiency, thyroid nodules, thyroiditis, and genetic factors
+    </div>
+    <div class="content" id="causes-hi" style="display:none;">
+       थायराइड रोग विभिन्न कारकों के कारण हो सकता है, जिनमें ऑटोइम्यून विकार (जैसे, हाशिमोटो की थायरॉयडिटिस, ग्रेव्स रोग), आयोडीन की कमी, थायराइड नोड्यूल, थायरॉयडिटिस और आनुवंशिक कारक शामिल हैं
+    </div>
+    <div class="content" id="causes-ur" style="display:none;">
+       تھائیرائیڈ بیماری مختلف عوامل کی وجہ سے ہو سکتی ہے، جن میں خود کار مدافعتی امراض (جیسے، ہاشیموٹو کی تھائیرائیڈائٹس، گریوز بیماری)، آئوڈین کی کمی، تھائیرائیڈ نوڈولز، تھائیرائیڈائٹس اور جینیاتی عوامل شامل ہیں
+    </div>
+</section>
+
+<section id="symptoms">
+    <h2><i class="fas fa-exclamation-triangle icon"></i> <span id="symptoms-header-en">Symptoms of Thyroid Disease</span>
+        <span id="symptoms-header-hi" style="display:none;">थायरॉयड रोग के लक्षण</span>
+        <span id="symptoms-header-ur" style="display:none;">تھائیرائیڈ کی بیماری کی علامات</span>
+    </h2>
+    <div class="content" id="symptoms-en">
+        Symptoms of thyroid disease vary depending on whether the thyroid is overactive (hyperthyroidism) or underactive (hypothyroidism). Common symptoms include fatigue, weight changes, temperature sensitivity, heart palpitations, and changes in skin and hair
+    </div>
+    <div class="content" id="symptoms-hi" style="display:none;">
+        थायराइड रोग के लक्षण इस पर निर्भर करते हैं कि थायराइड अधिक सक्रिय है (हाइपरथायरायडिज्म) या कम सक्रिय है (हाइपोथायरायडिज्म)। सामान्य लक्षणों में थकान, वजन में परिवर्तन, तापमान संवेदनशीलता, हृदय की धड़कन में बदलाव और त्वचा और बालों में परिवर्तन शामिल हैं
+    </div>
+    <div class="content" id="symptoms-ur" style="display:none;">
+        تھائیرائیڈ بیماری کی علامات اس پر منحصر ہوتی ہیں کہ تھائیرائیڈ زیادہ فعال ہے (ہائپر تھائیرائیڈزم) یا کم فعال ہے (ہائپو تھائیرائیڈزم)۔ عام علامات میں تھکاوٹ، وزن میں تبدیلی، درجہ حرارت کی حساسیت، دل کی دھڑکن میں تبدیلی اور جلد اور بالوں میں تبدیلی شامل ہیں۔
+    </div>
+</section>
+
+<section id="diagnosis">
+     <h2><i class="fas fa-stethoscope icon"></i> <span id="diagnosis-header-en">Diagnosis of Thyroid Disease</span>
+        <span id="diagnosis-header-hi" style="display:none;">थायरॉयड रोग का निदान</span>
+        <span id="diagnosis-header-ur" style="display:none;">تھائیرائیڈ کی بیماری کی تشخیص</span>
+    </h2>
+    <div class="content" id="diagnosis-en">
+        Diagnosis of thyroid disease involves a combination of clinical evaluation, blood tests (e.g., TSH, T4, T3 levels), imaging tests (e.g., ultrasound), and sometimes biopsies
+    </div>
+    <div class="content" id="diagnosis-hi" style="display:none;">
+       थायराइड रोग का निदान नैदानिक मूल्यांकन, रक्त परीक्षण (जैसे, T3, T4 , TSh  स्तर), इमेजिंग परीक्षण (जैसे, अल्ट्रासाउंड) और कभी-कभी बायोप्सी के संयोजन से किया जाता है
+    </div>
+    <div class="content" id="diagnosis-ur" style="display:none;">
+        تھائیرائیڈ بیماری کی تشخیص کلینیکل تشخیص، خون کے ٹیسٹ (جیسے، ٹی ایس ایچ، ٹی 4، ٹی 3 کی سطح)، امیجنگ ٹیسٹ (جیسے، الٹراساؤنڈ) اور کبھی کبھار بایوپسی کے امتزاج سے کی جاتی ہے
+    </div>
+ <a href="https://wa.me/+1234567890?text=Hello%2C%20I%20would%20like%20to%20book%20a%20blood%20test%20for%20thyroid%20disease." target="_blank" class="hint">
+        Click the button to book your blood test via WhatsApp.
+    </a>
+</section>
+
+<section id="treatment">
+    <h2><i class="fas fa-pills icon"></i> <span id="treatment-header-en">Treatment Options</span>
+        <span id="treatment-header-hi" style="display:none;">थायरॉयड रोग के उपचार विकल्प</span>
+        <span id="treatment-header-ur" style="display:none;">تھائیرائیڈ کی بیماری کے علاج کے اختیارات</span>
+    </h2>
+    <div class="content" id="treatment-en">
+        Treatment options depend on the type of thyroid disease and may include medications (e.g., antithyroid drugs, hormone replacement therapy), radioactive iodine therapy, and surgery (thyroidectomy)
+    </div>
+    <div class="content" id="treatment-hi" style="display:none;">
+        उपचार विकल्प थायराइड रोग के प्रकार पर निर्भर करते हैं और इसमें दवाएं (जैसे, एंटीथायरॉइड ड्रग्स, हार्मोन रिप्लेसमेंट थेरेपी), रेडियोधर्मी आयोडीन थेरेपी और सर्जरी (थायरॉयडेक्टॉमी) शामिल हो सकते हैं
+    </div>
+    <div class="content" id="treatment-ur" style="display:none;">
+        علاج کے اختیارات تھائیرائیڈ بیماری کی قسم پر منحصر ہوتے ہیں اور ان میں دوائیں (جیسے، اینٹی تھائیرائیڈ دوائیں، ہارمون متبادل تھراپی)، ریڈیو ایکٹیو آئوڈین تھراپی اور سرجری (تھائیرائیڈیکٹومی) شامل ہو سکتی ہیں    </div>
+</section>
+
+<section id="complications">
+    <h2><i class="fas fa-exclamation-circle icon"></i> <span id="complications-header-en">Complications of Thyroid Disease</span>
+        <span id="complications-header-hi" style="display:none;">थायरॉयड रोग के जटिलताएँ</span>
+        <span id="complications-header-ur" style="display:none;">تھائیرائیڈ کی بیماری کی پیچیدگیاں</span>
+    </h2>
+    <div class="content" id="complications-en">
+        Complications of untreated thyroid disease can include heart problems, mental health issues, infertility, and in severe cases, myxedema coma (hypothyroidism) or thyroid storm (hyperthyroidism)
+    </div>
+    <div class="content" id="complications-hi" style="display:none;">
+       अनुपचारित थायराइड रोग की जटिलताओं में हृदय की समस्याएं, मानसिक स्वास्थ्य समस्याएं, बांझपन और गंभीर मामलों में मिक्सेडेमा कोमा (हाइपोथायरायडिज्म) या थायरॉयड स्टॉर्म (हाइपरथायरायडिज्म) शामिल हो सकते हैं
+    </div>
+    <div class="content" id="complications-ur" style="display:none;">
+        غیر علاج شدہ تھائیرائیڈ بیماری کی پیچیدگیوں میں دل کے مسائل، ذہنی صحت کے مسائل، بانجھ پن اور شدید صورتوں میں مکسڈیما کوما (ہائپو تھائیرائیڈزم) یا تھائیرائیڈ سٹورم (ہائپر تھائیرائیڈزم) شامل ہو سکتے ہیں    </div>
+</section>
+
+<section id="home-remedies">
+    <h2><i class="fas fa-leaf icon"></i> <span id="home-remedies-header-en">Home Remedies</span>
+        <span id="home-remedies-header-hi" style="display:none;">घर में इलाज</span>
+        <span id="home-remedies-header-ur" style="display:none;">گھر کے علاج</span>
+    </h2>
+    <div class="content" id="home-remedies-en">
+       Some home remedies for managing thyroid disease include consuming a balanced diet rich in iodine, selenium, and anti-inflammatory foods, as well as incorporating herbs like ashwagandha and holy basil
+    </div>
+    <div class="content" id="home-remedies-hi" style="display:none;">
+        थायराइड रोग के प्रबंधन के लिए कुछ घरेलू उपचारों में आयोडीन, सेलेनियम और एंटी-इंफ्लेमेटरी खाद्य पदार्थों से भरपूर संतुलित आहार का सेवन करना, और अश्वगंधा और तुलसी जैसी जड़ी-बूटियों को शामिल करना शामिल है
+    </div>
+    <div class="content" id="home-remedies-ur" style="display:none;">
+        تھائیرائیڈ بیماری کے انتظام کے لیے کچھ گھریلو علاج میں آئوڈین، سیلینیم اور اینٹی انفلامیٹری غذاؤں سے بھرپور متوازن غذا کا استعمال، اور اشوگندھا اور تلسی جیسی جڑی بوٹیوں کو شامل کرنا شامل ہے
+    </div>
+</section>
+
+<!-- WhatsApp Booking Button -->
+ <!-- WhatsApp Booking Button -->
+    <a href="https://wa.me/+1234567890?text=Hello%2C%20I%20would%20like%20to%20book%20a%20blood%20test%20for%20thyroid%20disease." target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+        Book a Blood Test
+    </a>
+
+<script>
+    
+    function changeLanguage(lang) {
+        // Header Text Changes
+        document.getElementById('header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        // Warning Text Changes
+        document.getElementById('warning-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('warning-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('warning-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        // Section Text Changes
+        document.getElementById('definition-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('definition-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('definition-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+        
+        document.getElementById('causes-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('causes-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('causes-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('symptoms-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('symptoms-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('symptoms-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('diagnosis-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('diagnosis-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('diagnosis-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('treatment-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('treatment-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('treatment-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('complications-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('complications-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('complications-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('home-remedies-header-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('home-remedies-header-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('home-remedies-header-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        // Content Changes
+        document.getElementById('definition-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('definition-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('definition-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('causes-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('causes-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('causes-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('symptoms-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('symptoms-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('symptoms-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('diagnosis-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('diagnosis-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('diagnosis-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('treatment-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('treatment-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('treatment-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('complications-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('complications-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('complications-ur').style.display = lang === 'ur' ? 'block' : 'none';
+
+        document.getElementById('home-remedies-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.getElementById('home-remedies-hi').style.display = lang === 'hi' ? 'block' : 'none';
+        document.getElementById('home-remedies-ur').style.display = lang === 'ur' ? 'block' : 'none';
+    }
+
+
+</script>
+
+</body>
+</html>
+  

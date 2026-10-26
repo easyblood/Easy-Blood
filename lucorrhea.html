@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leucorrhea Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7fc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: #00796b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .content {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+        }
+        select {
+            padding: 8px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 8px 0;
+        }
+        footer {
+            background: red;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header-title">Leucorrhea Information</header>
+ <div onclick="location.assign('/Healthy blood/vlog.html')" style="display:block;width:200px;margin:2rem auto;padding:1rem;background:linear-gradient(45deg,#007bff,#00bcd4);color:white;text-align:center;font-size:1.2rem;border-radius:30px;text-decoration:none;box-shadow:0 5px 10px rgba(0,0,0,.1);transition:all .3s ease;">Go to back page</div>
+
+    <div class="content">
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="ur">Urdu</option>
+        </select>
+
+        <h2 id="section-title">What is Leucorrhea?</h2>
+        <p id="section-text">Leucorrhea refers to the white or yellowish vaginal discharge that is typically odorless. It is often caused by infections, hormonal imbalances, or other medical conditions.</p>
+
+        <h3 id="symptoms-title">Symptoms of Leucorrhea</h3>
+        <ul id="symptoms-list">
+            <li>White or yellowish discharge from the vagina</li>
+            <li>Itching or irritation in the vaginal area</li>
+            <li>Unpleasant odor from the discharge</li>
+            <li>Pelvic pain or discomfort</li>
+        </ul>
+
+        <h3 id="causes-title">Causes of Leucorrhea</h3>
+        <ul id="causes-list">
+            <li>Infections (bacterial or fungal)</li>
+            <li>Hormonal imbalances</li>
+            <li>Poor hygiene</li>
+            <li>Sexually transmitted infections (STIs)</li>
+            <li>Pregnancy or menstruation-related changes</li>
+        </ul>
+
+        <h3 id="diagnosis-title">Diagnosis of Leucorrhea</h3>
+        <p id="diagnosis-text">A doctor may perform pelvic exams, laboratory tests, and examine discharge samples to determine the cause of leucorrhea.</p>
+
+        <h3 id="treatment-title">Management and Treatment</h3>
+        <ul id="treatment-list">
+            <li>Antibiotic or antifungal medications (if caused by infections)</li>
+            <li>Hormonal therapy (in case of hormonal imbalances)</li>
+            <li>Maintaining proper hygiene</li>
+            <li>Wearing breathable cotton undergarments</li>
+        </ul>
+
+        <h3 id="home-remedies-title">Home Remedies for Leucorrhea</h3>
+        <ul id="home-remedies-list">
+            <li>Use of turmeric and neem for their antimicrobial properties</li>
+            <li>Consuming a healthy, balanced diet</li>
+            <li>Maintaining hygiene with mild soap and water</li>
+            <li>Drinking plenty of water to stay hydrated</li>
+        </ul>
+    </div>
+
+    <footer id="footer-text">This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment.</footer>
+
+    <script>
+        const languageData = {
+            en: {
+                headerTitle: "Leucorrhea Information",
+                sectionTitle: "What is Leucorrhea?",
+                sectionText: "Leucorrhea refers to the white or yellowish vaginal discharge that is typically odorless. It is often caused by infections, hormonal imbalances, or other medical conditions.",
+                symptomsTitle: "Symptoms of Leucorrhea",
+                symptomsList: [
+                    "White or yellowish discharge from the vagina",
+                    "Itching or irritation in the vaginal area",
+                    "Unpleasant odor from the discharge",
+                    "Pelvic pain or discomfort"
+                ],
+                causesTitle: "Causes of Leucorrhea",
+                causesList: [
+                    "Infections (bacterial or fungal)",
+                    "Hormonal imbalances",
+                    "Poor hygiene",
+                    "Sexually transmitted infections (STIs)",
+                    "Pregnancy or menstruation-related changes"
+                ],
+                diagnosisTitle: "Diagnosis of Leucorrhea",
+                diagnosisText: "A doctor may perform pelvic exams, laboratory tests, and examine discharge samples to determine the cause of leucorrhea.",
+                treatmentTitle: "Management and Treatment",
+                treatmentList: [
+                    "Antibiotic or antifungal medications (if caused by infections)",
+                    "Hormonal therapy (in case of hormonal imbalances)",
+                    "Maintaining proper hygiene",
+                    "Wearing breathable cotton undergarments"
+                ],
+                homeRemediesTitle: "Home Remedies for Leucorrhea",
+                homeRemediesList: [
+                    "Use of turmeric and neem for their antimicrobial properties",
+                    "Consuming a healthy, balanced diet",
+                    "Maintaining hygiene with mild soap and water",
+                    "Drinking plenty of water to stay hydrated"
+                ],
+                footerText: "This information is for general understanding. Always consult a healthcare professional for diagnosis and treatment."
+            },
+            hi: {
+                headerTitle: "ल्यूकोरिया जानकारी",
+                sectionTitle: "ल्यूकोरिया क्या है?",
+                sectionText: "ल्यूकोरिया का मतलब है सफेद या पीला योनि से रिसाव, जो आमतौर पर गंधहीन होता है। यह संक्रमण, हार्मोनल असंतुलन या अन्य चिकित्सा स्थितियों के कारण हो सकता है।",
+                symptomsTitle: "ल्यूकोरिया के लक्षण",
+                symptomsList: [
+                    "योनि से सफेद या पीला रिसाव",
+                    "योनि क्षेत्र में खुजली या जलन",
+                    "रिसाव से अप्रिय गंध",
+                    "पेट में दर्द या असुविधा"
+                ],
+                causesTitle: "ल्यूकोरिया के कारण",
+                causesList: [
+                    "संक्रमण (बैक्टीरियल या फंगल)",
+                    "हार्मोनल असंतुलन",
+                    "खराब स्वच्छता",
+                    "यौन संचारित संक्रमण (STIs)",
+                    "गर्भावस्था या मासिक धर्म से संबंधित बदलाव"
+                ],
+                diagnosisTitle: "ल्यूकोरिया की निदान",
+                diagnosisText: "एक डॉक्टर योनि परीक्षा, प्रयोगशाला परीक्षण और रिसाव के नमूनों की जांच कर ल्यूकोरिया के कारण का निर्धारण कर सकते हैं।",
+                treatmentTitle: "प्रबंधन और उपचार",
+                treatmentList: [
+                    "संक्रमण के कारण होने पर एंटीबायोटिक या एंटिफंगल दवाइयाँ",
+                    "हार्मोनल असंतुलन के मामलों में हार्मोनल उपचार",
+                    "सही स्वच्छता बनाए रखना",
+                    "सांस लेने योग्य सूती अंतर्वस्त्र पहनना"
+                ],
+                homeRemediesTitle: "ल्यूकोरिया के घरेलू उपचार",
+                homeRemediesList: [
+                    "हल्दी और नीम का उपयोग उनके एंटीमाइक्रोबियल गुणों के लिए",
+                    "स्वस्थ, संतुलित आहार का सेवन करना",
+                    "माइल्ड साबुन और पानी से स्वच्छता बनाए रखना",
+                    "हाइड्रेटेड रहने के लिए पानी अधिक पीना"
+                ],
+                footerText: "यह जानकारी केवल सामान्य समझ के लिए है। निदान और उपचार के लिए हमेशा एक स्वास्थ्य विशेषज्ञ से परामर्श करें।"
+            },
+            ur: {
+                headerTitle: "لیکوریا کی معلومات",
+                sectionTitle: "لیکوریا کیا ہے؟",
+                sectionText: "لیکوریا وہ سفید یا پیلے رنگ کا واگینل اخراج ہے جو عام طور پر بے بو ہوتا ہے۔ یہ اکثر انفیکشن، ہارمونل عدم توازن، یا دیگر طبی حالتوں کی وجہ سے ہوتا ہے۔",
+                symptomsTitle: "لیکوریا کی علامات",
+                symptomsList: [
+                    "واگینا سے سفید یا پیلا اخراج",
+                    "واگینل علاقے میں خارش یا جلن",
+                    "اخراج سے بدبو آنا",
+                    "پیٹ میں درد یا تکلیف"
+                ],
+                causesTitle: "لیکوریا کے اسباب",
+                causesList: [
+                    "انفیکشن (بیکٹیریل یا فنگل)",
+                    "ہارمونل عدم توازن",
+                    "غلط صفائی",
+                    "جنسی طور پر منتقلی بیماریوں (STIs)",
+                    "حمل یا ماہواری سے متعلق تبدیلیاں"
+                ],
+                diagnosisTitle: "لیکوریا کی تشخیص",
+                diagnosisText: "ایک ڈاکٹر pelvic exams، لیبارٹری ٹیسٹ کر کے اور اخراج کے نمونے لے کر لیکوریا کی وجہ کا پتہ لگا سکتا ہے۔",
+                treatmentTitle: "انتظامیہ اور علاج",
+                treatmentList: [
+                    "انفیکشن کی صورت میں اینٹی بایوٹک یا اینٹی فنگل ادویات",
+                    "ہارمونل عدم توازن کی صورت میں ہارمونل تھراپی",
+                    "صحیح صفائی رکھنا",
+                    "سانس لینے والے کپاس کے اندرونی لباس پہننا"
+                ],
+                homeRemediesTitle: "لیکوریا کے گھریلو علاج",
+                homeRemediesList: [
+                    "اینٹی مائیکروبیل خصوصیات کے لیے ہلدی اور نیم کا استعمال",
+                    "صحت مند اور متوازن غذا کا استعمال",
+                    "ہلکے صابن اور پانی سے صفائی رکھنا",
+                    "ہائڈریٹ رہنے کے لیے پانی زیادہ پینا"
+                ],
+                footerText: "یہ معلومات صرف عمومی فہمی کے لیے ہے۔ تشخیص اور علاج کے لیے ہمیشہ ایک ماہر صحت سے مشورہ کریں۔"
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById("language-select").value;
+            const data = languageData[lang];
+
+            document.getElementById("header-title").textContent = data.headerTitle;
+            document.getElementById("section-title").textContent = data.sectionTitle;
+            document.getElementById("section-text").textContent = data.sectionText;
+            document.getElementById("symptoms-title").textContent = data.symptomsTitle;
+            document.getElementById("causes-title").textContent = data.causesTitle;
+            document.getElementById("diagnosis-title").textContent = data.diagnosisTitle;
+            document.getElementById("diagnosis-text").textContent = data.diagnosisText;
+            document.getElementById("treatment-title").textContent = data.treatmentTitle;
+            document.getElementById("home-remedies-title").textContent = data.homeRemediesTitle;
+            document.getElementById("footer-text").textContent = data.footerText;
+
+            updateList("symptoms-list", data.symptomsList);
+            updateList("causes-list", data.causesList);
+            updateList("treatment-list", data.treatmentList);
+            updateList("home-remedies-list", data.homeRemediesList);
+        }
+
+        function updateList(id, items) {
+            const list = document.getElementById(id);
+            list.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+</html>

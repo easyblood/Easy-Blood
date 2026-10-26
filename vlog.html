@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A health blog focusing on various blood-related topics and overall wellness.">
+    <meta name="keywords" content="health, blood, thyroid, obesity, vitamins, cholesterol, PCOD, PCOS, etc.">
+    <meta name="author" content="Healthy Blood">
+
+    <title>Healthy Blood | Health Vlog</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            line-height: 1.6;
+            color: #333;
+            padding: 0 1rem;
+            min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #181818;
+            color: #f0f8ff;
+        }
+
+        /* Header */
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #0a3a69;
+    padding: 10px 15px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-icon i {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.logo img {
+    height: 30px;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    background: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.icon i {
+    font-size: 18px;
+}
+
+.whatsapp i {
+    color: #25D366;
+}
+
+.call i {
+    color: #d32f2f;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 25px;
+    padding: 8px 15px;
+    margin-top: 10px;
+}
+
+.search-bar i {
+    font-size: 18px;
+    color: black;
+    margin-right: 10px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    .search-bar {
+        flex-direction: row;
+    }
+}
+
+        /* Language Selector */
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .language-selector button {
+            background-color: #007bff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            margin: 0 0.75rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .language-selector button:hover {
+            background-color: #00bcd4;
+            transform: translateY(-3px);
+        }
+
+        .topic {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            padding: 1rem;
+            margin: 8px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .topic:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .topic .content {
+            padding-left: 1rem;
+            text-align: left;
+            width: calc(100% - 80px);
+        }
+
+        .topic img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .topic h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .topic p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .topic button {
+            background-color: #007bff;
+            color: white;
+            font-size: 0.9rem;
+            padding: 0.7rem 1.2rem;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .topic button:hover {
+            background-color: #00bcd4;
+            transform: scale(1.05);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+          
+            .language-selector button {
+                font-size: 0.85rem;
+                padding: 0.6rem 1.2rem;
+            }
+
+            .topic h2 {
+                font-size: 1.1rem;
+            }
+
+            .topic p {
+                font-size: 0.85rem;
+            }
+
+            .topic button {
+                padding: 0.6rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+        
+            .language-selector button {
+                font-size: 0.8rem;
+            }
+
+            .topic h2 {
+                font-size: 1rem;
+            }
+
+            .topic p {
+                font-size: 0.75rem;
+            }
+
+            .topic button {
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        /* Loading Spinner */
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+
+    </style>
+</head>
+<body>
+
+<!DOCTYPE html>
+
+<header>
+    <div class="navbar">
+        <div class="home-icon">
+              <a href="index.html"><i class="fas fa-home"></i>
+          </a>
+        </div>
+        <div class="logo">
+            <img src="Asset/image/logo.png" alt="Healthy Blood" width="150px">
+        </div>
+        <div class="icons">
+            <a href="https://wa.me/YOURNUMBER" target="_blank" class="icon whatsapp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="tel:YOURNUMBER" class="icon call">
+                <i class="fas fa-phone-alt"></i>
+            </a>
+        </div>
+    </div>
+    <div class="search-bar">
+        <i class="fas fa-search"></i>
+       <input type="text" id="searchInput" placeholder="Search for health topics..." onkeyup="filterTopics()">
+    </div>
+</header>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button onclick="switchLanguage('en')">English</button>
+        <button onclick="switchLanguage('hi')">Hindi</button>
+        <button onclick="switchLanguage('ur')">Urdu</button>
+        <button onclick="toggleDarkMode()">🌙</button>
+    </div>
+
+    <!-- Topics Section -->
+    <div class="topics" id="topicContainer">
+        <!-- Sample Topic -->
+        <div class="topic" onclick="location.assign('Topic/thyroid.html')">
+            <img src="Asset/image/thyroid.jpg" alt="Thyroid Health">
+            <div class="content">
+                <h2 class="en">Thyroid</h2>
+                <h2 class="hi" style="display:none;">थायराइड</h2>
+                <h2 class="ur" style="display:none;">تھائرائیڈ</h2>
+                <p class="en">Understanding thyroid health...</p>
+                <p class="hi" style="display:none;">थायराइड स्वास्थ्य को समझना...</p>
+                <p class="ur" style="display:none;">تھائرائیڈ کی صحت کو سمجھنا...</p>
+            </div>
+        </div>
+            <!-- Topic: Obesity -->
+    <div class="topic" onclick="location.assign('Topic/obesity.html')">
+      <img src="Asset/image/obesity.jpg" alt="Obesity">
+      <div>
+        <h2 class="en">Obesity</h2>
+        <h2 class="hi" style="display:none;">मोटापा</h2>
+        <h2 class="ur" style="display:none;">موٹاپا</h2>
+        <p class="en">Managing and preventing obesity...</p>
+        <p class="hi" style="display:none;">मोटापा और उसका इलाज...</p>
+        <p class="ur" style="display:none;">موٹاپا اور اس کا علاج...</p>
+      </div>
+    </div>
+
+    <!-- Topic: Vitamin D Deficiency -->
+    <div class="topic" onclick="location.assign('Topic/vitamind.html')">
+      <img src="Asset/image/vitamind.jpg" alt="Vitamin D Deficiency">
+      <div>
+        <h2 class="en">Vitamin D Deficiency</h2>
+        <h2 class="hi" style="display:none;">विटामिन D की कमी</h2>
+        <h2 class="ur" style="display:none;">وٹامن ڈی کی کمی</h2>
+        <p class="en">Importance of vitamin D for health...</p>
+        <p class="hi" style="display:none;">स्वास्थ्य के लिए विटामिन D का महत्व...</p>
+        <p class="ur" style="display:none;">صحت کے لیے وٹامن ڈی کی اہمیت...</p>
+      </div>
+    </div>
+
+    <!-- Topic: Vitamin B12 Deficiency -->
+    <div class="topic" onclick="location.assign('Topic/vitaminb12.html')">
+      <img src="Asset/image/vitaminb12.jpg" alt="Vitamin B12 Deficiency">
+      <div>
+        <h2 class="en">Vitamin B12 Deficiency</h2>
+        <h2 class="hi" style="display:none;">विटामिन B12 की कमी</h2>
+        <h2 class="ur" style="display:none;">وٹامن B12 کی کمی</h2>
+        <p class="en">Managing vitamin B12 deficiency...</p>
+        <p class="hi" style="display:none;">विटामिन B12 की कमी का प्रबंधन...</p>
+        <p class="ur" style="display:none;">وٹامن B12 کی کمی کا انتظام...</p>
+      </div>
+    </div>
+
+    <!-- Topic: Cholesterol -->
+    <div class="topic" onclick="location.assign('Topic/cholesterol.html')">
+      <img src="Asset/image/cholesterol.jpg" alt="Cholesterol">
+      <div>
+        <h2 class="en">Cholesterol</h2>
+        <h2 class="hi" style="display:none;">कोलेस्ट्रॉल</h2>
+        <h2 class="ur" style="display:none;">کولیسٹرول</h2>
+        <p class="en">Understanding and managing cholesterol levels...</p>
+        <p class="hi" style="display:none;">कोलेस्ट्रॉल के स्तर को समझना और प्रबंधित करना...</p>
+        <p class="ur" style="display:none;">کولیسٹرول کی سطح کو سمجھنا اور منظم کرنا...</p>
+      </div>
+    </div>
+
+    <!-- Topic: PCOD -->
+    <div class="topic" onclick="location.assign('Topic/pcod.html')">
+      <img src="Asset/image/pcod.jpg" alt="PCOD">
+      <div>
+        <h2 class="en">PCOD</h2>
+        <h2 class="hi" style="display:none;">पीसीओडी</h2>
+        <h2 class="ur" style="display:none;">پی سی او ڈی</h2>
+        <p class="en">Managing Polycystic Ovary Disorder...</p>
+        <p class="hi" style="display:none;">पॉलीसिस्टिक अंडाशय विकार का प्रबंधन...</p>
+        <p class="ur" style="display:none;">پولی سسٹک اووری ڈس آرڈر کا انتظام...</p>
+      </div>
+    </div>
+
+    <!-- Topic: PCOS -->
+    <div class="topic" onclick="location.assign('Topic/pcos.html')">
+      <img src="Asset/image/pcod.jpg" alt="PCOS">
+      <div>
+        <h2 class="en">PCOS</h2>
+        <h2 class="hi" style="display:none;">पीसीओएस</h2>
+        <h2 class="ur" style="display:none;">پی سی او ایس</h2>
+        <p class="en">Managing Polycystic Ovary Syndrome...</p>
+        <p class="hi" style="display:none;">पॉलीसिस्टिक अंडाशय सिंड्रोम का प्रबंधन...</p>
+        <p class="ur" style="display:none;">پولی سسٹک اووری سنڈروم کا انتظام...</p>
+      </div>
+    </div>
+
+    <!-- Topic: Lucorrhea -->
+    <div class="topic" onclick="location.assign('Topic/lucorrhea.html')">
+      <img src="Asset/image/leucorrhoea.png" alt="Lucorrhea">
+      <div>
+        <h2 class="en">Lucorrhea</h2>
+        <h2 class="hi" style="display:none;">ल्यूकोरिया</h2>
+        <h2 class="ur" style="display:none;">لیوکوریا</h2>
+        <p class="en">Understanding and treating Lucorrhea...</p>
+        <p class="hi" style="display:none;">ल्यूकोरिया को समझना और उपचार करना...</p>
+        <p class="ur" style="display:none;">لیوکوریا کو سمجھنا اور علاج کرنا...</p>
+      </div>
+    </div>
+
+    <!-- Topic: Scurvy -->
+    <div class="topic" onclick="location.assign('Topic/scurvy.html')">
+      <img src="Asset/image/scurvy.jpg" alt="Scurvy">
+      <div>
+        <h2 class="en">Scurvy</h2>
+        <h2 class="hi" style="display:none;">स्कर्वी</h2>
+        <h2 class="ur" style="display:none;">اسکوروی</h2>
+        <p class="en">Symptoms and treatment of scurvy...</p>
+        <p class="hi" style="display:none;">स्कर्वी के लक्षण और इलाज...</p>
+        <p class="ur" style="display:none;">اسکوروی کی علامات اور علاج...</p>
+      </div>
+    </div>
+
+    <!-- Topic: Toothache -->
+    <div class="topic" onclick="location.assign('Topic/toothache.html')">
+      <img src="Asset/image/toothache.png" alt="Toothache">
+      <div>
+        <h2 class="en">Toothache</h2>
+        <h2 class="hi" style="display:none;">दांत का दर्द</h2>
+        <h2 class="ur" style="display:none;">دانت کا درد</h2>
+        <p class="en">Relieving and preventing toothaches...</p>
+        <p class="hi" style="display:none;">दांत के दर्द को दूर करना और रोकथाम करना...</p>
+        <p class="ur" style="display:none;">دانت کے درد کو کم کرنا اور روکنا...</p>
+      </div>
+    </div>
+
+    <!-- Topic: Headache -->
+    <div class="topic" onclick="location.assign('Topic/headache.html')">
+      <img src="Asset/image/headache.jpg" alt="Headache">
+      <div>
+        <h2 class="en">Headache</h2>
+        <h2 class="hi" style="display:none;">सिर दर्द</h2>
+        <h2 class="ur" style="display:none;">سر درد</h2>
+        <p class="en">Causes and remedies for headaches...</p>
+        <p class="hi" style="display:none;">सिर दर्द के कारण और उपचार...</p>
+        <p class="ur" style="display:none;">سر درد کی وجوہات اور علاج...</p>
+      </div>
+    </div>
+
+    <!-- Topic: Pimples -->
+    <div class="topic" onclick="location.assign('Topic/pimples.html')">
+      <img src="Asset/image/pimples.jpg" alt="Pimples">
+      <div>
+        <h2 class="en">Pimples</h2>
+        <h2 class="hi" style="display:none;">पिंपल्स</h2>
+        <h2 class="ur" style="display:none;">پمپلز</h2>
+        <p class="en">How to treat pimples...</p>
+        <p class="hi" style="display:none;">पिंपल्स का इलाज कैसे करें...</p>
+        <p class="ur" style="display:none;">پمپلز کا علاج کیسے کریں...</p>
+      </div>
+    </div>
+
+    <!-- More Topics -->
+        <!-- Other topics go here -->
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading" id="loadingSpinner">Loading...</div>
+
+    <script>
+        function filterTopics() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let topics = document.querySelectorAll('.topic');
+            
+            topics.forEach(function(topic) {
+                let title = '';
+                let description = '';
+                title += topic.querySelector('.en').textContent.toLowerCase();
+                title += topic.querySelector('.hi').textContent.toLowerCase();
+                title += topic.querySelector('.ur').textContent.toLowerCase();
+
+                description += topic.querySelector('.en + p').textContent.toLowerCase();
+                description += topic.querySelector('.hi + p').textContent.toLowerCase();
+                description += topic.querySelector('.ur + p').textContent.toLowerCase();
+
+                if (title.includes(input) || description.includes(input)) {
+                    topic.style.display = '';
+                } else {
+                    topic.style.display = 'none';
+                }
+            });
+        }
+
+        function switchLanguage(language) {
+            let elements = document.querySelectorAll('.en, .hi, .ur');
+            elements.forEach(function(element) {
+                element.style.display = 'none';
+            });
+
+            let activeLanguageElements = document.querySelectorAll('.' + language);
+            activeLanguageElements.forEach(function(element) {
+                element.style.display = '';
+            });
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+
+</body>
+
+</html>
