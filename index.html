@@ -1,39 +1,696 @@
-from pathlib import Path
+<!DOCTYPE html>
+<html lang="en">
 
-src = Path("/mnt/data/index.html")
-text = src.read_text(encoding="utf-8")
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-# Fix the malformed Certificate list item.
-text = text.replace(
-    '<li><a href="certification.html">Certificate</a></li',
-    '<li><a href="certification.html">Certificate</a></li>'
-)
+    <meta name="description"
+        content="Easy Blood provides home visit blood test services in Bhiwandi, Mumbra, Mumbai, and surrounding areas. Book a test with us today for accurate and affordable results.">
 
-# Fix the malformed search input attribute.
-text = text.replace(
-    'placeholder="Search areas (e.g., Bhiwandi,Mumbra)". oninput="showResults()"',
-    'placeholder="Search areas (e.g., Bhiwandi,Mumbra)" oninput="showResults()"'
-)
+    <title>Easy Blood | Home Visit Collection Center</title>
 
-# The uploaded file accidentally contains a complete second HTML document
-# embedded in the first one. Keep its test-card content, styles and scripts,
-# but remove the duplicate document wrapper.
-start = text.find('<!DOCTYPE html>', text.find('<!--package slide-->'))
-if start != -1:
-    second_body = text.find('<body>', start)
-    second_end = text.find('</html>', second_body)
-    if second_body != -1 and second_end != -1:
-        # Keep everything inside the nested body, remove its duplicate wrapper.
-        inner = text[second_body + len('<body>'):second_end]
-        text = text[:start] + '<!-- Test cards section -->\n' + inner + text[second_end + len('</html>'):]
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        rel="stylesheet">
+</head>
 
-# Ensure the main document has only one DOCTYPE/html/head/body wrapper.
-# (The source already has the correct main wrapper; the operation above removes
-# the nested one.)
+<body>
 
-out = Path("/mnt/data/EasyBlood_index_fixed.html")
-out.write_text(text, encoding="utf-8")
+    <!-- Navbar -->
+    <header class="navbar">
 
-print(f"Created: {out}")
-print(f"Original lines: {len(src.read_text(encoding='utf-8').splitlines())}")
-print(f"Fixed lines: {len(text.splitlines())}")
+        <div class="logo">
+            <img src="Asset/image/logo.png" alt="Easy Blood Logo">
+        </div>
+
+        <nav class="navbar-links" id="navbar-links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#package">Packages</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#faqs">Faq</a></li>
+                <li><a href="doctor-consultation.html">Doctor Consultation</a></li>
+                <li><a href="vlog.html">Health blog</a></li>
+                <li><a href="certification.html">Certificate</a></li>
+                <li><a href="LabCorner.html">Lab personal</a></li>
+            </ul>
+        </nav>
+
+        <div class="icons">
+
+            <a href="https://wa.me/7559445660"
+               class="whatsapp-icon"
+               target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                     alt="WhatsApp"
+                     style="width:32px;height:32px;">
+            </a>
+
+            <a href="tel:+917559445660" class="call-icon">
+                <img src="Asset/image/call-icon.png" alt="Call">
+            </a>
+
+            <a href="#" class="cart-icon" onclick="toggleCartPopup(event)">
+                <img src="Asset/image/cart-icon.png" alt="Cart">
+                <span id="cart-count" class="cart-count">0</span>
+            </a>
+
+        </div>
+
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </header>
+
+
+    <!-- Search Bar -->
+    <div class="search-container">
+
+        <div class="lab-selection-wrapper">
+            <select id="lab-selection"
+                    onchange="updateTestsBasedOnLab()">
+
+                <option value="redcliffe" selected>
+                    redcliffe
+                </option>
+
+                <option value="thyrocare">
+                    Thyrocare
+                </option>
+
+                <option value="kk_lab">
+                    K.K Lab (Bhiwandi)
+                </option>
+
+            </select>
+        </div>
+
+
+        <div class="search-bar-wrapper">
+
+            <input type="text"
+                   id="search-bar"
+                   placeholder="Search for blood tests..."
+                   oninput="searchBloodTest()">
+
+            <button onclick="searchBloodTest()"
+                    class="search-button">
+
+                <i class="fas fa-search"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Search Results -->
+    <div id="search-results" class="search-results"></div>
+
+
+    <!-- Cart Popup -->
+    <div id="cart-popup" class="cart-popup">
+
+        <div class="cart-content">
+
+            <h3>Your Cart</h3>
+
+            <ul id="cart-items"></ul>
+
+
+            <div class="home-visit-charge-section">
+
+                <p id="home-visit-charge">
+                    Home Visit Charge: ₹0
+                </p>
+
+                <p id="remaining-amount-message"></p>
+
+            </div>
+
+
+            <!-- Hardcopy Report -->
+            <div class="hardcopy-option">
+
+                <input type="checkbox"
+                       id="hardcopy-checkbox"
+                       onchange="updateCartPopup()">
+
+                <label for="hardcopy-checkbox">
+
+                    Want a hardcopy report on home +₹100
+                    <br>
+
+                    <span style="font-weight:normal;font-size:0.9em;color:#555;">
+
+                        Or visit our center and get the hardcopy report for
+                        <strong>FREE!</strong>
+
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <p id="hardcopy-message"></p>
+
+
+            <div class="cart-total">
+
+                <strong>
+                    Total: ₹<span id="cart-total">0</span>
+                </strong>
+
+            </div>
+
+
+            <button onclick="clearCart()">
+                Clear Cart
+            </button>
+
+            <button onclick="closeCartPopup()">
+                Close Cart
+            </button>
+
+
+            <a id="whatsapp-booking"
+               href="#"
+               class="whatsapp-booking-button"
+               target="_blank">
+
+                <i class="fab fa-whatsapp"></i>
+                Book on WhatsApp
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Image Slider -->
+    <div class="carousel-container" id="carousel">
+
+        <div class="carousel-wrapper">
+
+            <div class="carousel-slide">
+                <img src="Asset/image/image1.png"
+                     alt="Image 1">
+            </div>
+
+            <div class="carousel-slide">
+                <img src="Asset/image/image2.png"
+                     alt="Image 2">
+            </div>
+
+            <div class="carousel-slide">
+                <img src="Asset/image/image3.png"
+                     alt="Image 3">
+            </div>
+
+        </div>
+
+
+        <div class="dots">
+
+            <div class="dot"
+                 onclick="goToSlide(0)">
+            </div>
+
+            <div class="dot"
+                 onclick="goToSlide(1)">
+            </div>
+
+            <div class="dot"
+                 onclick="goToSlide(2)">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Upload Prescription / Service Area -->
+
+    <div class="container-wrapper">
+
+        <div class="box">
+
+            <h2>
+
+                <img src="https://img.icons8.com/material-outlined/20/000000/document.png"
+                     alt="Document">
+
+                <br>
+
+                Upload Prescription
+
+            </h2>
+
+            <p>
+                Send via WhatsApp
+            </p>
+
+            <a href="https://wa.me/7559445660?text=I%20want%20to%20send%20my%20prescription%20for%20review."
+               target="_blank"
+               class="btn">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                     alt="WhatsApp">
+
+                Send
+
+            </a>
+
+        </div>
+
+
+        <div class="box">
+
+            <h2>
+                Verify Service Area
+            </h2>
+
+            <button id="location-btn"
+                    onclick="getLocation()">
+
+                Check Availability
+
+            </button>
+
+            <div id="loader"></div>
+
+            <p id="status"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Area Search -->
+
+    <div class="search-bar">
+
+        <input type="text"
+               id="searchInput"
+               placeholder="Search areas (e.g., Bhiwandi,Mumbra)"
+               oninput="showResults()"
+               autocomplete="off">
+
+        <i class="fas fa-search"
+           id="searchIcon">
+        </i>
+
+        <div id="serviceAreaResults"
+             class="service-area-results">
+        </div>
+
+    </div>
+
+
+    <!-- Pop-up Notification -->
+
+    <div id="popupNotification"
+         class="popup-notification"
+         style="display:none;">
+
+        <div class="popup-content">
+
+            <p id="popupMessage"></p>
+
+            <button id="popupButton">
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Test Cards -->
+
+    <div class="section">
+
+        <div class="section-title">
+            Special Offer for sunday Camp only from redcliffe Labs
+        </div>
+
+        <div class="test-slider">
+
+
+            <!-- Vitamin D -->
+
+            <div class="test-card"
+                 onclick="openModal('vitamin D','vitamin D.')">
+
+                <div class="test-header">
+                    vitamin D
+                </div>
+
+                <div class="test-info">
+
+                    <span>
+                        <del>₹1600</del>
+                        <b>₹599</b>
+                        (% Off)
+                    </span>
+
+                    <span>
+                        Reports in up to 24 hours
+                    </span>
+
+                </div>
+
+                <div class="button-container">
+
+                    <button class="view-details">
+                        View Details
+                    </button>
+
+                    <a class="whatsapp-inquiry"
+                       href="https://wa.me/7559445660?text=I'm%20interested%20in%20the%20Vitamin%20D%20test."
+                       target="_blank">
+
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                             alt="WhatsApp">
+
+                        Inquiry via WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- HBA1C -->
+
+            <div class="test-card"
+                 onclick="openModal('HBA1C','HBA1C.')">
+
+                <div class="test-header">
+                    HBA1C
+                </div>
+
+                <div class="test-info">
+
+                    <span>
+                        <del>₹440</del>
+                        <b>₹199</b>
+                        (% Off)
+                    </span>
+
+                    <span>
+                        Reports in up to 24 hours
+                    </span>
+
+                </div>
+
+                <div class="button-container">
+
+                    <button class="view-details">
+                        View Details
+                    </button>
+
+                    <a class="whatsapp-inquiry"
+                       href="https://wa.me/7559445660?text=I'm%20interested%20in%20the%20HBA1C%20test."
+                       target="_blank">
+
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                             alt="WhatsApp">
+
+                        Inquiry via WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Lipid Profile -->
+
+            <div class="test-card"
+                 onclick="openModal('lipid profile','lipid profile.')">
+
+                <div class="test-header">
+                    Lipid Profile
+                </div>
+
+                <div class="test-info">
+
+                    <span>
+                        <del>₹960</del>
+                        <b>₹299</b>
+                        (% Off)
+                    </span>
+
+                    <span>
+                        Reports in up to 24 hours
+                    </span>
+
+                </div>
+
+                <div class="button-container">
+
+                    <button class="view-details">
+                        View Details
+                    </button>
+
+                    <a class="whatsapp-inquiry"
+                       href="https://wa.me/7559445660?text=I'm%20interested%20in%20the%20Lipid%20Profile%20test."
+                       target="_blank">
+
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                             alt="WhatsApp">
+
+                        Inquiry via WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Vitamin D Again -->
+
+            <div class="test-card"
+                 onclick="openModal('vitamin D','vitamin D.')">
+
+                <div class="test-header">
+                    vitamin D
+                </div>
+
+                <div class="test-info">
+
+                    <span>
+                        <del>₹1600</del>
+                        <b>₹599</b>
+                        (% Off)
+                    </span>
+
+                    <span>
+                        Reports in up to 24 hours
+                    </span>
+
+                </div>
+
+                <div class="button-container">
+
+                    <button class="view-details">
+                        View Details
+                    </button>
+
+                    <a class="whatsapp-inquiry"
+                       href="https://wa.me/7559445660?text=I'm%20interested%20in%20the%20Vitamin%20D%20test."
+                       target="_blank">
+
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                             alt="WhatsApp">
+
+                        Inquiry via WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Body Checkup -->
+
+    <div class="section">
+
+        <div class="section-title">
+            Body Checkup
+        </div>
+
+        <div class="test-slider">
+
+
+            <div class="test-card"
+                 onclick="openModal('BharatFit Pro','BSF, cholesterol, triglycerides, sgot, sgpt, sgot/sgpt ratio, urea,BUN, creatine, BUN/creatinine ratio, TSH')">
+
+                <div class="test-header">
+                    BharatFit Pro (redcliffe labs)
+                </div>
+
+                <div class="test-info">
+
+                    <span>
+                        <del>₹1650</del>
+                        <b>₹549</b>
+                        (66% Off)
+                    </span>
+
+                    <span>
+                        Reports in 24 hours
+                    </span>
+
+                </div>
+
+                <div class="button-container">
+
+                    <button class="view-details">
+                        View Details
+                    </button>
+
+                    <a class="whatsapp-inquiry"
+                       href="https://wa.me/7559445660?text=I'm%20interested%20in%20the%20BharatFit%20Pro%20test."
+                       target="_blank">
+
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                             alt="WhatsApp">
+
+                        Inquiry via WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="test-card"
+                 onclick="openModal('BharatFit -1 (37 parameters)(redcliffe labs)','Blood sugar fasting, lipid profile, liver function test, kidney function test, thyroid profile total')">
+
+                <div class="test-header">
+                    BharatFit -1 (37 parameters)
+                </div>
+
+                <div class="test-info">
+
+                    <span>
+                        <del>₹1678</del>
+                        <b>₹849</b>
+                        (50% Off)
+                    </span>
+
+                    <span>
+                        Reports in 24 hours
+                    </span>
+
+                </div>
+
+                <div class="button-container">
+
+                    <button class="view-details">
+                        View Details
+                    </button>
+
+                    <a class="whatsapp-inquiry"
+                       href="https://wa.me/7559445660?text=I'm%20interested%20in%20the%20BharatFit-1%20test."
+                       target="_blank">
+
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                             alt="WhatsApp">
+
+                        Inquiry via WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Test Details Modal -->
+
+    <div class="modal" id="detailsModal">
+
+        <div class="modal-content">
+
+            <span class="close"
+                  onclick="closeModal()">
+                &times;
+            </span>
+
+            <h3 id="modalTitle"></h3>
+
+            <p id="modalText"></p>
+
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('.test-slider').slick({
+
+                slidesToShow: 1,
+
+                slidesToScroll: 1,
+
+                dots: true,
+
+                infinite: true,
+
+                adaptiveHeight: true
+
+            });
+
+        });
+
+
+        function openModal(title, text) {
+
+            document.getElementById("modalTitle").innerText = title;
+
+            document.getElementById("modalText").innerText = text;
+
+            document.getElementById("detailsModal").style.display = "block";
+
+        }
+
+
+        function closeModal() {
+
+            document.getElementById("detailsModal").style.display = "none";
+
+        }
+
+    </script>
